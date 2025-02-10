@@ -21,4 +21,5 @@ Project: E-Commerce website for tech and gadgets
 - commit your changes with **git commit -m "message"**, you need to add a descriptive message based on what you did. For example if you fixed a bug, be specific and say what bug you fixed, it helps with the organisation of the project and if we need to go back we will find the relevant part much faster.
 - pull the latest changes from the main branch with **git pull origin main**
 - push your changes with **git push origin branchname**
+- later on, once you are done with the branch you can do a pull request to merge your branch with the main branch
 
