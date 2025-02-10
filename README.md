@@ -4,6 +4,17 @@ Names: Fahim Ramez, Vardges Gasparyan, Mercedes Tamayo, Gabriel Jose Lopez
 
 Project: E-Commerce website for tech and gadgets
 
+## Organisation:
+Frontend: (Gabriel, Vardges) Java FX
+Backend: (Fahim, Mercedes) Java
+
+Data storage: text files
+Project management : Jira
+IDE: VS code
+Communication: Slack
+Software version control: GitHub
+
+
 ## Installation:
 1. Open a folder where you want to clone the repository
 - you can create a file such as comp380, and then another one called tech&gadgets
@@ -22,4 +33,17 @@ Project: E-Commerce website for tech and gadgets
 - pull the latest changes from the main branch with **git pull origin main**
 - push your changes with **git push origin branchname**
 - later on, once you are done with the branch you can do a pull request to merge your branch with the main branch
+
+## common git commands:
+I will list some of the most important commands, there are more but these are the ones we will be using most.
+- **git clone** "repository-url" -> clone repo to your computer
+- **git status** -> checks the status of your files, modified means you need to add, commit, pull, push
+- **git add "filename"** or **git add .**
+- **git commit -m "commit message"** to commit the file and give it a description
+- **git checkout -b "branch-name"** -> creates a new branch and changes to it, important to create a smooth working environment to be able to work on the code together
+- **git checkout "branch-name"** -> changes to an existing branch
+- **git branch** -> lists all branches in the repository
+- **git merge "branch-name"** -> merges the specified branch into your current branch
+- **git push origin "branch-name"** -> Pushes your local commits to the remote repository for the specified branch
+- **git log** -> shows commit history for the current banch
 
