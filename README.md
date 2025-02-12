@@ -47,3 +47,20 @@ I will list some of the most important commands, there are more but these are th
 - **git push origin "branch-name"** -> Pushes your local commits to the remote repository for the specified branch
 - **git log** -> shows commit history for the current banch
 
+## Components of the project
+- User Stories
+- UCD
+- Class Diagram
+- Test Cases (unit testing, )
+- Data Flow Diagram ?
+
+## Software Life Cycle
+1. Requirement Analaysis
+2. Specification
+3. Preliminary Design
+4. Detailed Design
+5. Implementation
+6. Testing (Validation)
+7. Operation
+8. Maintenance
+9. Retire (Kill it)
