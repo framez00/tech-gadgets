@@ -52,6 +52,8 @@ I will list some of the most important commands, there are more but these are th
 - UCD
 - Class Diagram
 - Test Cases (unit testing, )
+- Use Case Template 
+- User Manual
 - Data Flow Diagram ?
 
 ## Software Life Cycle
@@ -64,3 +66,5 @@ I will list some of the most important commands, there are more but these are th
 7. Operation
 8. Maintenance
 9. Retire (Kill it)
+
+Requirements -> Specification -> Design -> Implementation -> Deliver
