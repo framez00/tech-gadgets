@@ -1,5 +1,8 @@
 # User Stories
 
+## Display the items
+The customer wants to be able to open the website and have an overview of all the products that are being sold. Customer should see an image of the product, the price, and a button that says "add to cart".
+
 ## Searching an item
 As a tech buyer, I want to search for an item so that I can add it to my cart.
 Given that the application displays list of items, when the buyer clicks search bar and enters keyword and clicks “enter” button, it will display the list of items available. Then the buyer selects item they want to buy and clicks “add to cart”.
