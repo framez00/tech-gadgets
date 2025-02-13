@@ -68,3 +68,10 @@ I will list some of the most important commands, there are more but these are th
 9. Retire (Kill it)
 
 Requirements -> Specification -> Design -> Implementation -> Deliver
+
+## Front-end
+- three pages
+	- homepage lists items
+	- check out holds items that customer wants to buy
+	- confirmation page
+- search bar
