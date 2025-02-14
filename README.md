@@ -5,8 +5,8 @@ Names: Fahim Ramez, Vardges Gasparyan, Mercedes Tamayo, Gabriel Jose Lopez
 Project: E-Commerce website for tech and gadgets
 
 ## Organisation:
-Frontend: (Gabriel, Vardges) Java FX
-Backend: (Fahim, Mercedes) Java
+Frontend: Mercedez, Vardges - Java FX
+Backend: Fahim, Gabriel - Java
 
 Data storage: text files
 Project management : Jira
