@@ -12,3 +12,9 @@ Once you select an item and click “add to cart”, the cart should display a n
 
 ## Checking items in cart
 First you need to have selected one or more items to add to the cart. Then you will click on the cart button, and it will redirect you to another page. You will be able to see the items you selected, see your subtotal, and have the option to remove items. You can then continue to buy the items by clicking “continue” or ”payment”. 
+
+## Payment Proccessing 
+As a tech buyer, I want to be able to enter my credit card details so that I can complete my purchase and recieve and error message if payment is declined
+
+## Email Confirmation
+As a tech buyer, after placing my order and inputing my payment, I would like to recieve email confirmation so that i have proof of my purchase.
