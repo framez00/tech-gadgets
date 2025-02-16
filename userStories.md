@@ -13,6 +13,9 @@ Once you select an item and click “add to cart”, the cart should display a n
 ## Checking items in cart
 First you need to have selected one or more items to add to the cart. Then you will click on the cart button, and it will redirect you to another page. You will be able to see the items you selected, see your subtotal, and have the option to remove items. You can then continue to buy the items by clicking “continue” or ”payment”. 
 
+## Proceed to Checkout
+After placing the items into the cart and checking the items, the user needs to be able to click on a button called “checkout“ to be able to buy the products.
+
 ## Shipping Method
 As a tech buyer, I want to be able to choose the type of shipping I would like and difference in prices from each one.
 
