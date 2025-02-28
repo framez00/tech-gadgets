@@ -1,0 +1,13 @@
+NanoPhone
+
+Key Features:
+
+Compact Size: Smaller than a credit card, measuring just 0.4" x 3.5" x 1.8" and weighing 2.3 ounces, making it highly portable and convenient.
+
+Connectivity: Supports 4G and Wi-Fi, allowing for clear voice and video calls.
+
+Operating System: Runs on Android 10, providing access to essential apps and functionalities.
+
+Display: Features a 3-inch screen suitable for basic tasks like web browsing and using apps such as YouTube and WhatsApp.
+
+Camera: Equipped with a 5MP rear camera and a 2MP front camera for basic photography needs.
