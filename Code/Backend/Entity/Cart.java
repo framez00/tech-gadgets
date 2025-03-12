@@ -4,9 +4,9 @@ public class Cart{
 	private int cartID;
 	private int customerID;
 	private float totalPrice;
-	private ArrayList<Product> listOfProducts;
+	private ArrayList<Product> listProducts;
 
-	public Cart(int cartID, int customerID, float totalPrice, Product[]listOfProducts){
+	public Cart(int cartID, int customerID, float totalPrice, Product[]listProducts){
 		this.cartID = cartID;
 		this.customerID = customerID;
 		this.totalPrice = totalPrice;
@@ -25,7 +25,7 @@ public class Cart{
 	}
 
 	public ArrayList<Product> getList(){
-		return listOfProducts;
+		return listProducts;
 	}
 
 
@@ -41,7 +41,7 @@ public class Cart{
 		this.totalPrice = totalPrice;
 	}
 
-	public void setListOfProducts(ArrayList<Product> listOfProducts){
-		this.listOfProducts = listOfProducts;
+	public void setListOfProducts(ArrayList<Product> listProducts){
+		this.listProducts = listProducts;
 	}
 }
