@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: white;" stylesheets="@../styles/Styles.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <HBox alignment="CENTER_LEFT" layoutX="20.0" layoutY="14.0" prefHeight="80.0" prefWidth="585.0" spacing="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="295.0" AnchorPane.topAnchor="14.0">
+         <children>
+            <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../infinity_tech_logo_720.png" />
+               </image>
+            </ImageView>
+            <Label text="Infinity Tech">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <TextField promptText="Search products..." />
+         </children>
+      </HBox>
+      <GridPane alignment="TOP_CENTER" layoutX="32.0" layoutY="145.0" prefHeight="440.0" prefWidth="826.0">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <VBox alignment="TOP_CENTER" prefHeight="208.0" prefWidth="158.0" spacing="10.0" GridPane.columnIndex="1">
+               <children>
+                  <ImageView fitHeight="128.0" fitWidth="88.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../../Product/Headphone/Headphone1/JVC_HA-RX700_01.png" />
+                     </image>
+                  </ImageView>
+                  <Label text=" JVC Headphone">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Button mnemonicParsing="false" styleClass="round-blue" text="Add to card" />
+               </children>
+            </VBox>
+            <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="15.0">
+               <children>
+                  <ImageView fitHeight="128.0" fitWidth="165.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../../Product/Laptop/Laptop1/1.jpg" />
+                     </image>
+                  </ImageView>
+                  <Label text="Lenovo - Ideapad 3">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Button mnemonicParsing="false" styleClass="round-blue" text="Add to card" />
+               </children>
+            </VBox>
+            <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="15.0" GridPane.columnIndex="2">
+               <children>
+                  <ImageView fitHeight="166.0" fitWidth="164.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../../Product/smartwatch/smartwatch2/apple-smartwatch-MXG23LLA.jpg" />
+                     </image>
+                  </ImageView>
+                  <Label text="Apple Watch Series 10">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Button mnemonicParsing="false" styleClass="round-blue" text="Add to card" />
+               </children>
+            </VBox>
+            <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="15.0" GridPane.columnIndex="4">
+               <children>
+                  <ImageView fitHeight="122.0" fitWidth="161.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../../Apple_iPhone_16_Pro_Max_black_titanium_front_back1.png" />
+                     </image>
+                  </ImageView>
+                  <Label text="Iphone 16" />
+                  <Button mnemonicParsing="false" styleClass="round-blue" text="Add to card" />
+               </children>
+            </VBox>
+            <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="15.0" GridPane.rowIndex="1">
+               <children>
+                  <ImageView fitHeight="140.0" fitWidth="183.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../../Product/Laptop/Laptop2/1.jpg" />
+                     </image>
+                  </ImageView>
+                  <Label prefHeight="26.0" prefWidth="166.0" text="ASUS - 2-in-1  Laptop " />
+                  <Button mnemonicParsing="false" styleClass="round-blue" text="Add to card" />
+               </children>
+            </VBox>
+            <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="15.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <children>
+                  <ImageView fitHeight="123.0" fitWidth="155.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../../Product/Headphone/Headphone2/th.jpg" />
+                     </image>
+                  </ImageView>
+                  <Label text="Sonny Headphone" />
+                  <Button mnemonicParsing="false" styleClass="round-blue" text="Add to card" />
+               </children>
+            </VBox>
+            <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="15.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+               <children>
+                  <ImageView fitHeight="131.0" fitWidth="163.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../../Product/smartwatch/smartwatch1/garmin-smartwatch-010-02862-10-dynamic-right-view.jpg" />
+                     </image>
+                  </ImageView>
+                  <Label text="Garmin smartwatch" />
+                  <Button mnemonicParsing="false" styleClass="round-blue" text="Add to card" />
+               </children>
+            </VBox>
+            <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="15.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
+               <children>
+                  <ImageView fitHeight="161.0" fitWidth="171.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../../Product/Phone/Phone2/Apple-iPhone-15_-blue_featured-image-packshot-review.jpg" />
+                     </image>
+                  </ImageView>
+                  <Label text="Iphone 14" />
+                  <Button mnemonicParsing="false" styleClass="round-blue" text="Add to card" />
+               </children>
+            </VBox>
+            <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="15.0" GridPane.columnIndex="4" GridPane.rowIndex="1">
+               <children>
+                  <ImageView fitHeight="116.0" fitWidth="114.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../../Product/Microphone/Microphone2/OIP.jpg" />
+                     </image>
+                  </ImageView>
+                  <Label text="SM7B  Vocal Microphone" />
+                  <Button mnemonicParsing="false" styleClass="round-blue" text="Add to card" />
+               </children>
+            </VBox>
+            <ImageView fitHeight="123.0" fitWidth="146.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" />
+            <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0" GridPane.columnIndex="3">
+               <children>
+                  <ImageView fitHeight="135.0" fitWidth="138.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../../Product/Microphone/Microphone1/71gxEmpE67L._AC_SL1500_.jpg" />
+                     </image>
+                  </ImageView>
+                  <Label text="Condenser Microphone">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Button mnemonicParsing="false" styleClass="round-blue" text="Add to card" />
+               </children>
+            </VBox>
+         </children>
+      </GridPane>
+      <ImageView fx:id="cartIcon" fitHeight="26.0" fitWidth="28.0" layoutX="793.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../Product/images.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="cartCountLabel" layoutX="830.0" layoutY="33.0" text="1" />
+   </children>
+</AnchorPane>
