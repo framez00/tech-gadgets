@@ -9,7 +9,11 @@ public class ProductController{
 	}
 
 	public void removeProduct(Product product){
-		productList.remove(product);
+		if(productList.contains(product)){
+			productList.remove(product);
+		}else{
+			System.out.println("Product does not exist.");
+		}
 	}
 
 	public ArrayList<Product>listAllProducts(){
