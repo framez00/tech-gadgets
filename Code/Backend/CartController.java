@@ -8,13 +8,14 @@ public class CartController {
         this.carts = new ArrayList<>();
     }
 
-    public void createCart(int cartID, int customerID) {
+    public boolean createCart(int cartID, int customerID) {
         for (Cart cart : carts) {
             if (cart.getCartID() == cartID) {
-                throw new IllegalArgumentException("Cart with this ID already exists.");
+                return false; // Cart with this ID already exists
             }
         }
         carts.add(new Cart(cartID, customerID, 0, new Product[]{}));
+        return true; // Cart created successfully
     }
 
     public Cart getCart(int cartID) {
@@ -26,24 +27,50 @@ public class CartController {
         return null; // Return null if no cart is found
     }
 
-    public void addProductToCart(int cartID, Product product) {
+    public boolean addProductToCart(int cartID, Product product) {
         Cart cart = getCart(cartID);
         if (cart != null) {
             cart.addProduct(product);
-        } else {
-            throw new IllegalArgumentException("Cart not found.");
+            return true; // Product added successfully
         }
+        return false; // Cart not found
     }
 
-    public void removeProductFromCart(int cartID, Product product) {
+    public boolean removeProductFromCart(int cartID, Product product) {
         Cart cart = getCart(cartID);
         if (cart != null) {
             cart.removeProduct(product);
-        } else {
-            throw new IllegalArgumentException("Cart not found.");
+            return true; // Product removed successfully
         }
+        return false; // Cart not found
     }
 
     public float getCartTotalPrice(int cartID) {
         Cart cart = getCart(cartID);
-        if (cart != null)
+        if (cart != null) {
+            return cart.getTotalPrice();
+        }
+        return -1; // Return -1 if cart not found
+    }
+
+    public void listCartProducts(int cartID) {
+        Cart cart = getCart(cartID);
+        if (cart != null) {
+            for (Product product : cart.getListProducts()) {
+                System.out.println(product.getName() + " - $" + product.getPrice());
+            }
+        } else {
+            System.out.println("Cart not found.");
+        }
+    }
+
+    public boolean clearCart(int cartID) {
+        Cart cart = getCart(cartID);
+        if (cart != null) {
+            cart.setListProducts(new ArrayList<>());
+            cart.setTotalPrice(0);
+            return true; // Cart cleared successfully
+        }
+        return false; // Cart not found
+    }
+}
