@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <VBox alignment="TOP_CENTER" layoutX="70.0" layoutY="52.0" prefHeight="533.0" prefWidth="760.0" spacing="10.0">
+         <children>
+            <ImageView fitHeight="270.0" fitWidth="281.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../Product/Microphone/Microphone1/.jpg" />
+               </image>
+            </ImageView>
+            <Label prefHeight="52.0" prefWidth="534.0" text="Blue Yeti Professional Multi-Pattern USB Condenser Microphone">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Label>
+            <TextArea prefHeight="119.0" prefWidth="740.0" text="Key Features:&#10;Proprietary Three-Capsule Technology: Delivers clear, powerful, broadcast-quality sound for professional-level recording and streaming.&#10;Four Pickup Patterns: Offers cardioid, omni, bidirectional, and stereo modes, providing versatility for various recording scenarios.&#10;Adjustable Stand: Allows you to pivot the microphone to optimize sound quality in relation to the sound source.&#10;No-Latency Monitoring: Enables real-time tracking of your voice to ensure great-sounding recordings and streams." />
+            <Button mnemonicParsing="false" prefHeight="45.0" prefWidth="143.0" styleClass="round-blue" stylesheets="@../styles/Styles.css" text="Add to card" />
+         </children>
+      </VBox>
+      <Button layoutX="30.0" layoutY="14.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="34.0" text="⬅" />
+   </children>
+</AnchorPane>
