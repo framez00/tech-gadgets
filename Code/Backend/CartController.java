@@ -11,11 +11,11 @@ public class CartController {
     public boolean createCart(int cartID, int customerID) {
         for (Cart cart : carts) {
             if (cart.getCartID() == cartID) {
-                return false; // Cart with this ID already exists
+                return false; 
             }
         }
         carts.add(new Cart(cartID, customerID, 0, new Product[]{}));
-        return true; // Cart created successfully
+        return true; 
     }
 
     public Cart getCart(int cartID) {
@@ -24,25 +24,25 @@ public class CartController {
                 return cart;
             }
         }
-        return null; // Return null if no cart is found
+        return null; 
     }
 
     public boolean addProductToCart(int cartID, Product product) {
         Cart cart = getCart(cartID);
         if (cart != null) {
             cart.addProduct(product);
-            return true; // Product added successfully
+            return true; 
         }
-        return false; // Cart not found
+        return false; 
     }
 
     public boolean removeProductFromCart(int cartID, Product product) {
         Cart cart = getCart(cartID);
         if (cart != null) {
             cart.removeProduct(product);
-            return true; // Product removed successfully
+            return true; 
         }
-        return false; // Cart not found
+        return false; 
     }
 
     public float getCartTotalPrice(int cartID) {
@@ -50,7 +50,7 @@ public class CartController {
         if (cart != null) {
             return cart.getTotalPrice();
         }
-        return -1; // Return -1 if cart not found
+        return -1; 
     }
 
     public void listCartProducts(int cartID) {
@@ -69,8 +69,8 @@ public class CartController {
         if (cart != null) {
             cart.setListProducts(new ArrayList<>());
             cart.setTotalPrice(0);
-            return true; // Cart cleared successfully
+            return true; 
         }
-        return false; // Cart not found
+        return false; 
     }
 }
