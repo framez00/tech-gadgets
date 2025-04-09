@@ -34,7 +34,7 @@ public class Product{
 		this.description = description;
 	}
 
-	public double price(){
+	public double getPrice(){
 		return price;
 	}
 	public void setPrice(double price){

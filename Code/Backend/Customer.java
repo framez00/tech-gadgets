@@ -1,14 +1,17 @@
 public class Customer {
 
     private String userID;
-    private String name;
+    private String firstName;
+    private String lastName;
     private LocalDate DOB;
     private String email;
     private String address;
     private String phoneNumber;
 
-    public Customer(String name, LocalDate DOB, String email, String address) {
-        this.name = name;
+    public Customer(String userID, String firstName, String lastName, LocalDate DOB, String email, String address, String phoneNumber) {
+        this.userID = userID;
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.DOB = DOB;
         this.email = email;
         this.address = address;
@@ -20,8 +23,12 @@ public class Customer {
         return userID;
     }
 
-    public String getName() {
-        return name;
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastname(){
+        return lastName;
     }
 
     public LocalDate getDOB() {
@@ -36,12 +43,34 @@ public class Customer {
         return address;
     }
 
-     public String getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
-     }
+    }
+
+    public void setUserID(String userID){
+        this.userID = userID;
+    }
+
+    public void setFirstName(String firstName){
+        return firstName;
+    }
+
+    public void setLastName(String lastName){
+        return lastName;
+    }
+
     public void setAddress(String address) {
         this.address = address;
     }
+
+    public void setEmail(String email){
+        this.email = email;
+    }
+
+    public void setAddress(String address){
+        this.address = address;
+    }
+    
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
