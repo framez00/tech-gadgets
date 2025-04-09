@@ -1,22 +1,37 @@
 import java.util.ArrayList;
+import java.util.List;
 
 public class ProductController{
 
-	private ArrayList<Product> productList;
+	private ArrayList<Product> products;
 
-	public void addProduct(Product product){
-		productList.add(product);
+	public ProductController(){
+		this.products = new ArrayList<>();
 	}
 
-	public void removeProduct(Product product){
-		if(productList.contains(product)){
-			productList.remove(product);
+	public boolean addProduct(Product product){
+		products.add(product);
+		return true;
+	}
+
+	public boolean removeProduct(Product product){
+		if(products.contains(product)){
+			products.remove(product);
+			return true;
 		}else{
 			System.out.println("Product does not exist.");
 		}
+		return false;
 	}
 
 	public ArrayList<Product>listAllProducts(){
-		return productList;
+		return products;
+	}
+
+	public boolean doesProductExist(Product product){
+		if(products.contains(product)){
+			return true;
+		}
+		return false;
 	}
 }
