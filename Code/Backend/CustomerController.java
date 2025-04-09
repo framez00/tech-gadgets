@@ -8,13 +8,13 @@ public class CustomerController {
         this.customers = new ArrayList<>();
     }
 
-    public boolean addCustomer(String name, LocalDate DOB, String email, String address, String phoneNumber) {
+    public boolean addCustomer(String userID, String firstName, String lastName, LocalDate DOB, String email, String address, String phoneNumber) {
         for (Customer customer : customers) {
             if (customer.getEmail().equals(email)) {
                 return false;
             }
         }
-        customers.add(new Customer(name, DOB, email, address, phoneNumber));
+        customers.add(new Customer(userId, firstName, lastName, DOB, email, address, phoneNumber));
         return true;
     }
 
