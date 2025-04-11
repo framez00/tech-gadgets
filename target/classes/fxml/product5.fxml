@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <VBox alignment="TOP_CENTER" layoutX="70.0" layoutY="52.0" prefHeight="533.0" prefWidth="760.0" spacing="10.0">
+         <children>
+            <ImageView fitHeight="270.0" fitWidth="281.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../Product/smartwatch/smartwatch2/apple-smartwatch-MXG23LLA.jpg" />
+               </image>
+            </ImageView>
+            <Label prefHeight="52.0" prefWidth="534.0" text="                                        Apple Watch Series 10">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Label>
+            <TextArea prefHeight="119.0" prefWidth="740.0" text="ADVANCED HEALTH INSIGHTS—Take an ECG⁶ anytime. Get notifications if you have high or low heart rate or an irregular heart rhythm.⁷&#10; Understand your menstrual cycle and get retrospective ovulation estimates.⁸ See overnight health metrics like heart rate, respiratory rate, &#10;and more with the Vitals app.⁹ Track sleep and get notifications if signs of sleep apnea are detected.¹&#10;A POWERFUL FITNESS PARTNER—Measure all the ways you move with Activity Rings, which are customizable to match your lifestyle. &#10;Get advanced metrics for a range of workouts with the Workout app. Track the intensity of your workouts with training load.&#10; Use depth and water temperature sensors for your aquatic adventures. And Apple Watch comes with three months of Apple Fitness+ free.¹⁰&#10;STAY CONNECTED—Send a text, take a call, listen to music and podcasts, use Siri, and get notifications on the go. Apple Watch Series 10 (GPS) works with your iPhone or Wi-Fi to keep you connected." />
+            <Button mnemonicParsing="false" prefHeight="45.0" prefWidth="143.0" styleClass="round-blue" stylesheets="@../styles/Styles.css" text="Add to card" />
+         </children>
+      </VBox>
+      <Button layoutX="30.0" layoutY="14.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="34.0" text="⬅" />
+   </children>
+</AnchorPane>
