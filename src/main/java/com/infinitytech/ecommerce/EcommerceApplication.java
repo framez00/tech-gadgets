@@ -1,15 +1,17 @@
 package com.infinitytech.ecommerce;
 
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
-class EcommerceApplicationTests {
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-	@Test
-	void contextLoads() {
-	}
 
+@SpringBootApplication
+public class EcommerceApplication {
+
+
+   public static void main(String[] args) {
+       SpringApplication.run(EcommerceApplication.class, args);
+   }
 }
 
 //http://localhost:8080/products/search?name=Laptop
