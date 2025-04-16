@@ -15,6 +15,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -25,6 +26,7 @@ public class FXMLController implements Initializable {
     
     @FXML 
     private VBox cartPopup;
+    
 
     private int cartCount = 0;
 
@@ -41,8 +43,14 @@ public class FXMLController implements Initializable {
 
     //when mouse hovers over shopping cart image, cart summary appears
     @FXML
-    private void toggleCartPopup() {
-        cartPopup.setVisible(!cartPopup.isVisible());
+    private void showCartPopup(MouseEvent event) {
+        cartPopup.setVisible(true);
+    }
+
+    //when mouse exits, cart popup disappears
+    @FXML
+    private void hideCartPopup(MouseEvent event) {
+        cartPopup.setVisible(false);
     }
 
     @FXML
