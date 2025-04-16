@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
+
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.checkoutController"
+            prefWidth="800" prefHeight="600">
+
+    <VBox spacing="20" AnchorPane.topAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
+        
+        <Label text="Checkout" style="-fx-font-size: 24px; -fx-font-weight: bold;"/>
+
+        <!-- Email -->
+        <VBox spacing="5">
+            <Label text="Email"/>
+            <TextField fx:id="emailField" promptText="Enter your email"/>
+        </VBox>
+
+        <!-- Shipping Address -->
+        <VBox spacing="5">
+            <Label text="Shipping Address"/>
+            <TextField fx:id="addressField" promptText="Street Address"/>
+            <TextField fx:id="cityField" promptText="City"/>
+            <TextField fx:id="zipField" promptText="ZIP Code"/>
+        </VBox>
+
+        <!-- Shipping Method -->
+        <VBox spacing="5">
+            <Label text="Shipping Method"/>
+            <ChoiceBox fx:id="shippingMethodChoice">
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+                        <String fx:value="Standard (5-7 days)"/>
+                        <String fx:value="Express (2-3 days)"/>
+                        <String fx:value="Overnight"/>
+                    </FXCollections>
+                </items>
+            </ChoiceBox>
+        </VBox>
+
+        <!-- Payment Info -->
+        <VBox spacing="5">
+            <Label text="Payment (Credit Card)"/>
+            <TextField fx:id="cardNumberField" promptText="Card Number"/>
+            <HBox spacing="10">
+                <TextField fx:id="expField" promptText="MM/YY"/>
+                <TextField fx:id="cvvField" promptText="CVV"/>
+            </HBox>
+        </VBox>
+
+        <!-- Order Summary -->
+        <VBox spacing="5">
+            <Label text="Order Summary"/>
+            <Label fx:id="orderTotalLabel" text="Total: $0.00" style="-fx-font-size: 16px;"/>
+        </VBox>
+
+        <!-- Submit Button -->
+        <Button text="Place Order" onAction="#placeOrder" style="-fx-font-size: 16px;"/>
+
+    </VBox>
+</AnchorPane>
