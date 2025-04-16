@@ -5,10 +5,9 @@ public class Product{
 	private double price;
 	private int quantity;
 
-	public Product(String productID, String productName, String description, double price, int quantity){
+	public Product(String productID, String productName, double price, int quantity){
 		this.productID = productID;
 		this.productName = productName;
-		this.description = description;
 		this.price = price;
 		this.quantity = quantity;
 	}
@@ -27,13 +26,6 @@ public class Product{
 		this.productName = productName;
 	}
 
-	public String getDescription(){
-		return description;
-	}
-	public void setDescription(String description){
-		this.description = description;
-	}
-
 	public double getPrice(){
 		return price;
 	}
@@ -47,4 +39,10 @@ public class Product{
 	public void setQuantity(int quantity){
 		this.quantity = quantity;
 	}
+
+	//to format the products
+	@Override
+    public String toString() {
+        return "Product{id='" + productID + "', name='" + productName + "', price=" + price + ", quantity=" + quantity + "}";
+    }
 }
