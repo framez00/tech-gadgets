@@ -11,3 +11,6 @@ class EcommerceApplicationTests {
 	}
 
 }
+
+//http://localhost:8080/products/search?name=Laptop
+//http://localhost:8080/products/search
