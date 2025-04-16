@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.FXMLController">
+   <children>
+      <VBox alignment="TOP_CENTER" layoutX="70.0" layoutY="52.0" prefHeight="533.0" prefWidth="760.0" spacing="10.0">
+         <children>
+            <ImageView fitHeight="270.0" fitWidth="281.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Product/Laptop/Laptop1/1.jpg" />
+               </image>
+            </ImageView>
+            <Label prefHeight="52.0" prefWidth="534.0" text="15.6&quot; Touch-Screen Laptop - Intel Core i3 - 8GB Memory - 256GB SSD">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Label>
+            <TextArea prefHeight="119.0" prefWidth="740.0" text="Key Features:&#10;Processor: Intel Core i3&#10;Memory: 8GB RAM&#10;Storage: 256GB SSD&#10;Display: 15.6-inch touch-screen&#10;Color: Abyss Blue" />
+         </children>
+      </VBox>
+      <Button layoutX="30.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#goBackToCatalog" prefHeight="30.0" prefWidth="34.0" text="⬅" />
+   </children>
+</AnchorPane>
