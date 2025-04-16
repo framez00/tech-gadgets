@@ -1,4 +1,4 @@
-01, JVC Headphones,29.99,10
+01, JVC Headphones, 29.99, 10
 02, Sony Headphones, 29.99, 10
 03, Windows Laptop, 399.99, 10
 04, Asus Laptop, 399.99, 10

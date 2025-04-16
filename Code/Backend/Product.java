@@ -39,10 +39,4 @@ public class Product{
 	public void setQuantity(int quantity){
 		this.quantity = quantity;
 	}
-
-	//to format the products
-	@Override
-    public String toString() {
-        return "Product{id='" + productID + "', name='" + productName + "', price=" + price + ", quantity=" + quantity + "}";
-    }
 }

@@ -13,7 +13,7 @@ public class ProductTesting {
         // Add a new product
         System.out.println("\nAdding a new product:");
         Product newProduct = new Product("11", "Mouse", 9.99, 10);
-        controller.addProduct(newProduct);
+        controller.addProduct(newProduct, "11");
         controller.saveProducts();  // Save to file
         System.out.println("After adding new product:");
         controller.listAllProducts();
@@ -25,12 +25,12 @@ public class ProductTesting {
         controller.listAllProducts();
 
         // Check if product exists
-        System.out.println("\nDoes product 01 exist?");
-        boolean exists = controller.doesProductExist("01");
+        System.out.println("\nDoes product 02 exist?");
+        boolean exists = controller.doesProductExist("02");
         System.out.println(exists ? "Yes" : "No");
 
-        System.out.println("\nDoes product 1 exist?");
-        boolean exists2 = controller.doesProductExist("1");
+        System.out.println("\nDoes product 01 exist?");
+        boolean exists2 = controller.doesProductExist("01");
         System.out.println(exists2 ? "Yes" : "No");
 
         input.close();

@@ -72,7 +72,13 @@ public class ProductController{
 	}
 
 	//add products to the list
-	public void addProduct(Product product){
+	public void addProduct(Product product, String productID){
+		for(Product p : products){
+			if(p.getProductID().equals(productID)){
+				System.out.printf("Product %s already exists.\n", productID);
+				return;
+			}
+		}
 		products.add(product);
 	}
 
@@ -87,19 +93,17 @@ public class ProductController{
 				System.out.println("Product with product id " + productID + " has been removed.");
 				return true;
 			}
-			//if not, it does not exist
-			else{
-			System.out.println("Product does not exist.");
-			}
 		}
+		//if not, it doesnt exist
+		System.out.println("Product does not exist.");
 		return false;
 	}
 
 	//list all products in the list
 	public ArrayList<Product>listAllProducts(){
 		for(Product product : products){
-			System.out.println(product.getProductID() + ", " + product.getProductName() + "," +
-							   product.getPrice() + "," + product.getQuantity());
+			System.out.println(product.getProductID() + ", " + product.getProductName() + ", " +
+							   product.getPrice() + ", " + product.getQuantity());
 		}
 		return products;
 	}
