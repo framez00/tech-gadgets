@@ -16,7 +16,7 @@ public class ProductController{
 		loadProducts();
 	}
 
-	//method to load all the products in the txt file into the productsList
+	//method to load all the products in the txt file into the products list
 	public void loadProducts(){
 		//create the file that i will load products from
 		File file = new File("products.txt");
