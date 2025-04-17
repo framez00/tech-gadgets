@@ -183,11 +183,20 @@
                      </image>
                   </ImageView>
                   <Label fx:id="cartCountLabel" text="1" />
-                  <VBox fx:id="cartPopup" alignment="TOP_RIGHT" layoutY="60.0" prefHeight="526.0" prefWidth="156.0" spacing="10.0" visible="false">
+                  
+                  <VBox fx:id="cartPopup" alignment="TOP_CENTER"
+                     visible="false" spacing="10.0"
+                     style="-fx-background-color: #ffffff;
+                           -fx-padding: 12;
+                           -fx-border-color: #ccc;
+                           -fx-border-width: 1;
+                           -fx-background-radius: 8;
+                           -fx-border-radius: 8;
+                           -fx-effect: dropshadow(one-pass-box, rgba(0,0,0,0.25), 5, 0, 0, 2);">
                      <children>
-                        <Label text="Cart Summary" textAlignment="JUSTIFY">
+                        <Label text="Cart Summary">
                            <font>
-                              <Font size="25.0" />
+                              <Font size="18.0" />
                            </font>
                         </Label>
                         <ListView fx:id="cartList" prefHeight="200.0" prefWidth="200.0" />
