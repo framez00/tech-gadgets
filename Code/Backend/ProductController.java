@@ -1,5 +1,8 @@
-import java.io.*;
-import java.util.*;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.io.PrintWriter;
+import java.util.Scanner;
 //imported ArrayLists, BufferedReader, FileReader
 
 public class ProductController{
@@ -13,14 +16,13 @@ public class ProductController{
 		loadProducts();
 	}
 
-	//method to load all the products in the txt file
+	//method to load all the products in the txt file into the productsList
 	public void loadProducts(){
 		//create the file that i will load products from
 		File file = new File("products.txt");
 
 		//clear the list so there are no duplicates
 		products.clear();
-
 
 		if(file.exists()){
 			try{
@@ -53,7 +55,7 @@ public class ProductController{
 		}
 	}
 
-	//method to save the products in txt file
+	//method to save products and write them back into the txt file
 	public void saveProducts(){
 		try{
 			//create a writer
