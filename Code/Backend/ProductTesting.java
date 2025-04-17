@@ -3,8 +3,6 @@ import java.util.Scanner;
 public class ProductTesting {
     public static void main(String[] args) {
         ProductController controller = new ProductController();
-        Scanner input = new Scanner(System.in);
-
         // Load existing products from file
         controller.loadProducts();
         System.out.println("Products loaded from file:");
@@ -32,7 +30,5 @@ public class ProductTesting {
         System.out.println("\nDoes product 01 exist?");
         boolean exists2 = controller.doesProductExist("01");
         System.out.println(exists2 ? "Yes" : "No");
-
-        input.close();
     }
 }

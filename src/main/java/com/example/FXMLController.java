@@ -69,15 +69,6 @@ public class FXMLController implements Initializable {
 
     @FXML
     private void openProduct1(MouseEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/product1.fxml"));
-        Parent root = loader.load();
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(new Scene(root));
-        stage.show();
-    }
-
-    @FXML
-    private void openProduct1(MouseEvent event) throws IOException {
         loadProductPage(event, "/fxml/product1.fxml");
     }
 
