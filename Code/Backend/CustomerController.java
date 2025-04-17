@@ -89,9 +89,10 @@ public class CustomerController {
     public void getCustomerInformation(String userID) {
     for (Customer customer : customers) {
         if (customer.getUserID().equals(userID)) {
-            System.out.println("CustomerID: " + customer.getUserID() + ", Name: " + customer.getFirstName() + " " + customer.getLastName() + ", DOB: " + customer.getDob() + 
-                               "Email: " + customer.getEmail() + ", address " + customer.getStreet() + " " + customer.getCity() + " " + customer.getState() + " " + customer.getZip() + 
+            System.out.println("CustomerID: " + customer.getUserID() + ", Name: " + customer.getFirstName() + " " + customer.getLastName() + ", DOB: " + customer.getDob() + ", " +
+                               "Email: " + customer.getEmail() + ", Address " + customer.getStreet() + " " + customer.getCity() + " " + customer.getState() + " " + customer.getZip() + 
                                ", Phone Number: " + customer.getPhoneNumber());
+            return;
         }
     }
     System.out.println("Customer does not exist.");

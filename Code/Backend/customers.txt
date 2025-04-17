@@ -1,4 +1,4 @@
-C01, Eren, Jäger, 2025-04-01, eren.jäger@gmail.com, street, city, state, 91326, 8188888888
-C02, Mikasa, Ackermann, 2025-04-01, mikasa.ackermann@gmail.com, street, city, state, 91326, 8188888888
-C03, Armin, Arlert, 2025-04-01, armin.arlert@gmail.com, street, city, state, 91326, 8188888888
+C01, Eren, Jäger, 2025-04-01, eren.jäger@gmail.com, 19283 Elm Street, Los Angeles, CA, 91326, 8187469036
+C02, Mikasa, Ackermann, 2025-04-01, mikasa.ackermann@gmail.com, 19283 Elm Street, Los Angeles, CA, 91326, 8187469036
+C03, Armin, Arlert, 2025-04-01, armin.arlert@gmail.com, 19283 Elm Street, Los Angeles, CA, 91326, 8187469036
 C04, Tanjiro, Kamado, 2000-10-26, tanjiro.kamado@email.com, 19283 Elm Street, Los Angeles, CA, 91326, 8187469036
