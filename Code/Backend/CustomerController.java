@@ -80,6 +80,7 @@ public class CustomerController {
         for (Customer c : customers) {
             if (c.getEmail().equals(email)) {
                 System.out.printf("Email %s already exists.\n", email);
+                return;
             }
         }
         customers.add(customer);
