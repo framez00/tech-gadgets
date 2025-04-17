@@ -9,13 +9,13 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.FXMLController">
    <children>
       <VBox alignment="TOP_CENTER" layoutX="70.0" layoutY="52.0" prefHeight="533.0" prefWidth="760.0" spacing="10.0">
          <children>
             <ImageView fitHeight="270.0" fitWidth="281.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../Product/Phone/Phone2/Apple-iPhone-15_-blue_featured-image-packshot-review.jpg" />
+                  <Image url="@../Product/Phone/Phone2/Apple-iPhone-15_-blue_featured-image-packshot-review.jpg" />
                </image>
             </ImageView>
             <Label prefHeight="52.0" prefWidth="534.0" text="                                                  Iphone 14">
@@ -24,9 +24,8 @@
                </font>
             </Label>
             <TextArea prefHeight="119.0" prefWidth="740.0" text="iPhone 15 brings you Dynamic Island, a 48MP Main camera, and USB-C—all in a durable color-infused glass and aluminum designstreams.&#10;INNOVATIVE DESIGN — iPhone 15 features a durable color-infused glass and aluminum design. It’s splash, water, and dust resistant.¹ &#10;The Ceramic Shield front is tougher than any smartphone glass. &#10;And the 6.1&quot; Super Retina XDR display² is up to 2x brighter in the sun compared to iPhone 14." />
-            <Button mnemonicParsing="false" prefHeight="45.0" prefWidth="143.0" styleClass="round-blue" stylesheets="@../styles/Styles.css" text="Add to card" />
          </children>
       </VBox>
-      <Button layoutX="30.0" layoutY="14.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="34.0" text="⬅" />
+      <Button layoutX="30.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#goBackToCatalog" prefHeight="30.0" prefWidth="34.0" text="⬅" />
    </children>
 </AnchorPane>

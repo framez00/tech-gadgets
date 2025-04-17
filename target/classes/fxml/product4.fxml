@@ -9,24 +9,23 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.FXMLController">
    <children>
       <VBox alignment="TOP_CENTER" layoutX="70.0" layoutY="52.0" prefHeight="533.0" prefWidth="760.0" spacing="10.0">
          <children>
             <ImageView fitHeight="270.0" fitWidth="281.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../Product/Headphone/Headphone2/th.jpg" />
+                  <Image url="@../Product/Headphone/Headphone2/th.jpg" />
                </image>
             </ImageView>
-            <Label prefHeight="52.0" prefWidth="534.0" text="Sony - WHCH720N Wireless Noise Canceling Headphones - Black">
+            <Label prefHeight="52.0" prefWidth="534.0" text="Sony WH-1000XM4 Wireless Noise-Canceling Headphones">
                <font>
                   <Font size="17.0" />
                </font>
             </Label>
-            <TextArea prefHeight="119.0" prefWidth="740.0" text="Headphones that let you fully immerse yourself in the music&#10;Dual Noise Sensor Technology and an Integrated Processor V1 takes noise cancelling to the next level. Now you can fully immerse &#10;yourself in the music." />
-            <Button mnemonicParsing="false" prefHeight="45.0" prefWidth="143.0" styleClass="round-blue" stylesheets="@../styles/Styles.css" text="Add to card" />
+            <TextArea prefHeight="119.0" prefWidth="740.0" text="Industry-leading noise cancellation optimized for high-resolution audio.&#10;Up to 30 hours of battery life for all-day listening.&#10;Touch sensor controls for pause/play, skip tracks, control volume, activate voice assistant, and answer phone calls.&#10;Speak-to-chat technology automatically pauses music when you start speaking.&#10;Wearing detection pauses playback when headphones are removed." />
          </children>
       </VBox>
-      <Button layoutX="30.0" layoutY="14.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="34.0" text="⬅" />
+      <Button layoutX="30.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#goBackToCatalog" prefHeight="30.0" prefWidth="34.0" text="⬅" />
    </children>
 </AnchorPane>
