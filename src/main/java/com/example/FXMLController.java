@@ -25,6 +25,8 @@ public class FXMLController implements Initializable {
 
     private int cartCount = 0;
 
+    private boolean isCartPopupVisible = false;
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         if (cartCountLabel != null) {
@@ -38,16 +40,12 @@ public class FXMLController implements Initializable {
         cartCountLabel.setText(String.valueOf(cartCount));
     }
 
-    // when mouse hovers over shopping cart image, cart summary appears
+    
+    //allows cart summary popup to be visible when shopping cart image is clicked
     @FXML
-    private void showCartPopup(MouseEvent event) {
-        cartPopup.setVisible(true);
-    }
-
-    // when mouse exits, cart popup disappears
-    @FXML
-    private void hideCartPopup(MouseEvent event) {
-        cartPopup.setVisible(false);
+    private void toggleCartPopup(MouseEvent event) {
+            isCartPopupVisible = !isCartPopupVisible;
+            cartPopup.setVisible(isCartPopupVisible);
     }
 
     @FXML

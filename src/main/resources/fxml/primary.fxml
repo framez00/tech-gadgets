@@ -177,7 +177,7 @@
          <children>
             <HBox layoutX="5.0" layoutY="11.2" prefHeight="574.0" prefWidth="194.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="11.0">
                <children>
-                  <ImageView fx:id="cartIcon" fitHeight="26.0" fitWidth="28.0" onMouseEntered="#showCartPopup" onMouseExited="#hideCartPopup" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="cartIcon" fitHeight="26.0" fitWidth="28.0" onMouseClicked="#toggleCartPopup" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../Product/images.png" />
                      </image>
