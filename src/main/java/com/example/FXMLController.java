@@ -20,15 +20,19 @@ import javafx.scene.Node;
  * <p>
  * Date: April 15, 2025
  * <p>
- * Programmer: Mercedes Tamayo & Vardges 
+ * Programmer: Mercedes Tamayo & Vardges Gasparyan
  * <p>
  * Description:
- * It handles product navigation,cart updates, and transitions to the checkout page.
+ * It handles product navigation,cart updates, and transitions to the checkout
+ * page.
  * <p>
  * Important Functions:
- * - toggleCartPopup(MouseEvent): Toggles cart summary popup visibility. Input: mouse click. Output: none.
- * - goToCheckout(): Loads the checkout page scene. Input: none. Output: new scene set on the same stage.
- * - openProductX(MouseEvent): Loads a specific product page (1 through 10). Input: mouse click. Output: scene transition.
+ * - toggleCartPopup(MouseEvent): Toggles cart summary popup visibility. Input:
+ * mouse click. Output: none.
+ * - goToCheckout(): Loads the checkout page scene. Input: none. Output: new
+ * scene set on the same stage.
+ * - openProductX(MouseEvent): Loads a specific product page (1 through 10).
+ * Input: mouse click. Output: scene transition.
  * <p>
  * Important Data Structures:
  * - VBox cartPopup: UI container for showing a brief cart summary.
@@ -37,8 +41,9 @@ import javafx.scene.Node;
  * - Boolean isCartPopupVisible: tracks cart popup state.
  * <p>
  * Algorithms:
- * - Scene switching for product pages uses a reusable helper method `loadProductPage()` to avoid redundancy,
- *   improving maintainability and reducing code duplication.
+ * - Scene switching for product pages uses a reusable helper method
+ * `loadProductPage()` to avoid redundancy,
+ * improving maintainability and reducing code duplication.
  */
 
 public class FXMLController implements Initializable {
@@ -66,12 +71,11 @@ public class FXMLController implements Initializable {
         cartCountLabel.setText(String.valueOf(cartCount));
     }
 
-    
-    //allows cart summary popup to be visible when shopping cart image is clicked
+    // allows cart summary popup to be visible when shopping cart image is clicked
     @FXML
     private void toggleCartPopup(MouseEvent event) {
-            isCartPopupVisible = !isCartPopupVisible;
-            cartPopup.setVisible(isCartPopupVisible);
+        isCartPopupVisible = !isCartPopupVisible;
+        cartPopup.setVisible(isCartPopupVisible);
     }
 
     @FXML

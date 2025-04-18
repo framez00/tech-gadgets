@@ -1,8 +1,5 @@
 package com.example;
 
-// JavaFX E-commerce Website Example
-
-// Importing necessary JavaFX libraries
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -15,7 +12,12 @@ import javafx.stage.Stage;
 import javafx.geometry.Pos;
 import javafx.geometry.Insets;
 
-// Main class extending Application class to launch JavaFX application
+/**
+ * Date:03.03.2025
+ * Programmer:Vardges Gasparyan
+ * Main class for launching the JavaFX E-commerce application.
+ * It loads the primary FXML layout and sets up the main application window.
+ */
 public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -33,23 +35,3 @@ public class Main extends Application {
         launch(args);
     }
 }
-
-/*
- * Explanation of Layouts:
- * 
- * 1. BorderPane:
- * - Used as the root layout to divide the window into Top, Center, and Bottom
- * sections.
- * 
- * 2. HBox (Navigation Bar & Footer):
- * - Top: Contains navigation buttons and a search bar.
- * - Bottom: Displays footer text.
- * 
- * 3. GridPane (Product Grid):
- * - Displays products in a grid format with 3 columns.
- * 
- * 4. VBox (Product Cards):
- * - Each product card includes a product name and a "Buy Now" button.
- * 
- * The design includes basic styling and structure for an e-commerce website.
- */
