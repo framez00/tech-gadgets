@@ -1,3 +1,8 @@
 com\example\Main.class
+com\infinitytech\ecommerce\model\Product.class
+com\infinitytech\ecommerce\controller\ProductController.class
 module-info.class
+com\infinitytech\ecommerce\service\ProductService.class
+com\infinitytech\ecommerce\EcommerceApplication.class
 com\example\FXMLController.class
+com\example\checkoutController.class

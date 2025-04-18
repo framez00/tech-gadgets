@@ -19,8 +19,13 @@ public class EcommerceApplication {
       SpringApplication.run(EcommerceApplication.class, args);
   }
 }
+<<<<<<< HEAD
 
 
 //http://localhost:8080/products/search?name=Laptop
 //http://localhost:8080/products/search
 
+=======
+// http://localhost:8080/products/search?name=Laptop
+// http://localhost:8080/products/search
+>>>>>>> 0b8a425c5e94caee370eed7d7e33b95a2e95d1f6

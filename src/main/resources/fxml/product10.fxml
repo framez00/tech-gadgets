@@ -9,13 +9,13 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.FXMLController">
    <children>
       <VBox alignment="TOP_CENTER" layoutX="70.0" layoutY="52.0" prefHeight="533.0" prefWidth="760.0" spacing="10.0">
          <children>
             <ImageView fitHeight="270.0" fitWidth="281.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../Apple_iPhone_16_Pro_Max_black_titanium_front_back1.png" />
+                  <Image url="@../Product/Phone/Phone1/Apple_iPhone_16_Pro_Max_black_titanium_front_back1.png" />
                </image>
             </ImageView>
             <Label prefHeight="52.0" prefWidth="534.0" text="                                               Iphone 16">
@@ -24,9 +24,8 @@
                </font>
             </Label>
             <TextArea prefHeight="119.0" prefWidth="740.0" text="The iPhone 16 maintains a sleek aluminum design with a color-infused glass back, available in five vibrant colors: &#10;Ultramarine, Teal, Pink, White, and Black. It features a 6.1-inch Super Retina XDR OLED display with a resolution of 2556x1179 pixels, &#10;delivering sharp and vibrant visuals. The display supports HDR10 and offers a typical brightness of 1000 nits, peaking at 2000 nits for &#10;enhanced visibility in various lighting conditions&#10;" />
-            <Button mnemonicParsing="false" prefHeight="45.0" prefWidth="143.0" styleClass="round-blue" stylesheets="@../styles/Styles.css" text="Add to card" />
          </children>
       </VBox>
-      <Button layoutX="30.0" layoutY="14.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="34.0" text="⬅" />
+      <Button layoutX="30.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#goBackToCatalog" prefHeight="30.0" prefWidth="34.0" text="⬅" />
    </children>
 </AnchorPane>
