@@ -4,6 +4,30 @@ import java.util.ArrayList;
 import java.io.PrintWriter;
 import java.util.Scanner;
 
+/**
+ * a) Class Name: ProductController
+ * b) Date: April 15, 2025
+ * c) Programmer: Fahim Ramez
+ * d) Description:
+ *    This class handles the logic for managing a list of Product objects. It supports 
+ *    loading and saving products from/to a text file, adding new products, removing 
+ *    existing ones, and checking if a product exists.
+ *
+ * e) Important Functions:
+ *    - loadProducts(): Reads data from "products.txt" and adds to the products list.
+ *    - saveProducts(): Writes all current products to "products.txt".
+ *    - addProduct(Product product, String productID): Adds a product, checks if not already present.
+ *    - removeProduct(String productID): Removes a product by its ID.
+ *    - listAllProducts(): Displays and returns all products.
+ *    - doesProductExist(String productID): Checks if a product exists by ID.
+ *
+ * f) Data Structures:
+ *    - ArrayList Product: Used to store and manage the list of products.
+ *
+ * g) Algorithms:
+ *    - Linear search is used in addProduct(), removeProduct(), and doesProductExist() to find products by ID.
+ */
+
 public class ProductController {
 
 	private ArrayList<Product> products;
