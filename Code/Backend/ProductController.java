@@ -3,7 +3,6 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.io.PrintWriter;
 import java.util.Scanner;
-//imported ArrayLists, BufferedReader, FileReader
 
 public class ProductController {
 
@@ -79,27 +78,40 @@ public class ProductController {
 			}
 		}
 		products.add(product);
-		return true;
 	}
 
-	public boolean removeProduct(Product product) {
-		if (products.contains(product)) {
-			products.remove(product);
-			return true;
-		} else {
-			System.out.println("Product does not exist.");
-		}
-		return false;
+	public boolean removeProduct(String productID) {
+		//go through the list and loop
+        for(Product product : products){
+
+            //if productID is found, remove
+            if(product.getProductID().equals(productID)){
+                products.remove(product);
+                System.out.println("Product with productID " + product + " has been removed.");
+                return true;
+            }
+        }
+        //if not, it doesnt exist
+        System.out.println("Product does not exist.");
+        return false;
 	}
 
 	public ArrayList<Product> listAllProducts() {
-		return products;
+		for(Product product : products){
+            System.out.println(product.getProductID() + ", " + product.getProductName() + ", " +
+                               product.getPrice() + ", " + product.getQuantity());
+        }
+        return products;
 	}
 
-	public boolean doesProductExist(Product product) {
-		if (products.contains(product)) {
-			return true;
-		}
-		return false;
+	public boolean doesProductExist(String productID) {
+		for(Product product : products){
+            if(product.getProductID().equals(productID)){
+                System.out.println("Product exists.");
+                return true;
+            }
+        }
+        System.out.println("Product does not exist.");
+        return false;
 	}
 }
