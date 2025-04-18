@@ -3,7 +3,6 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.io.PrintWriter;
 import java.util.Scanner;
-//imported ArrayLists, BufferedReader, FileReader
 
 public class ProductController {
 
