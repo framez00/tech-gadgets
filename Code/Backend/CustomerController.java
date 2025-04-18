@@ -5,6 +5,36 @@ import java.io.PrintWriter;
 import java.util.Scanner;
 import java.time.LocalDate;
 
+/**
+ * (a) Class Name: CustomerController
+ *
+ * (b) Date: April 16, 2025
+ *
+ * (c) Programmer: Fahim Ramez
+ *
+ * (d) Description:
+ * This class handles customer-related operations including loading from and saving to a file,
+ * adding, updating, removing, and listing customer data.
+ * It acts as the controller for managing customer records in memory and persistent storage.
+ *
+ * (e) Important Functions:
+ * - loadCustomers(): Loads customer data from customers.txt text file and populates the `customers` list.
+ * - saveCustomers(): Saves current customer data into the customers.txt text file.
+ * - addCustomer(): Adds a new customer, but only if the email hasnt been used yet.
+ * - getCustomerInformation(): Displays full information of a customer by userID.
+ * - updateCustomerDetails(): Updates the customer's contact information.
+ * - removeCustomer(): Deletes a customer by userID.
+ * - doesCustomerExist(): Checks existence of a customer by userID.
+ * - listAllCustomers(): Prints and returns a list of all customers.
+ *
+ * (f) Data Structures:
+ * - ArrayList Customer: is used to store and manage the list of all customers.
+ *
+ * (g) Algorithms:
+ * - Simple linear search is used to find customers by userID or email. I figured it was enough to do that since
+ *   we don't have much data.
+ */
+
 public class CustomerController {
     private ArrayList<Customer> customers;
 
