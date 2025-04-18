@@ -15,6 +15,32 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.scene.Node;
 
+/**
+ * Class Name: FXMLController
+ * <p>
+ * Date: April 15, 2025
+ * <p>
+ * Programmer: Mercedes Tamayo & Vardges 
+ * <p>
+ * Description:
+ * It handles product navigation,cart updates, and transitions to the checkout page.
+ * <p>
+ * Important Functions:
+ * - toggleCartPopup(MouseEvent): Toggles cart summary popup visibility. Input: mouse click. Output: none.
+ * - goToCheckout(): Loads the checkout page scene. Input: none. Output: new scene set on the same stage.
+ * - openProductX(MouseEvent): Loads a specific product page (1 through 10). Input: mouse click. Output: scene transition.
+ * <p>
+ * Important Data Structures:
+ * - VBox cartPopup: UI container for showing a brief cart summary.
+ * - Label cartCountLabel: UI label displaying number of items in the cart.
+ * - Integer cartCount: tracks the number of items added.
+ * - Boolean isCartPopupVisible: tracks cart popup state.
+ * <p>
+ * Algorithms:
+ * - Scene switching for product pages uses a reusable helper method `loadProductPage()` to avoid redundancy,
+ *   improving maintainability and reducing code duplication.
+ */
+
 public class FXMLController implements Initializable {
 
     @FXML
