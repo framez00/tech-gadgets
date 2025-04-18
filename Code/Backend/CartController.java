@@ -1,76 +1,72 @@
-import java.util.ArrayList;
+/**
+ * Class Name: CartController
+ * Date: April 17, 2025
+ * Programmer: Gabriel Jose Lopez Reyes
+ *
+ * Description:
+ * This controller manages shopping cart operations such as adding, removing,
+ * and clearing products from the cart via REST API endpoints.
+ *
+ * Key Methods:
+ * - addProduct(String productName): Adds a product to the cart.
+ * - removeProduct(String productName): Removes a product from the cart.
+ * - clearCart(): Empties the cart.
+ * - getCart(): Returns cart contents and subtotal.
+ *
+ * Data Structures:
+ * - Map<String, Object>: Used to return a structured response containing cart summary.
+ */
+package com.infinitytech.ecommerce.controller;
+
+import com.infinitytech.ecommerce.model.CartItem;
+import com.infinitytech.ecommerce.service.CartService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
+@RestController
+@RequestMapping("/cart")
 public class CartController {
-    private List<Cart> carts;
 
-    public CartController() {
-        this.carts = new ArrayList<>();
+    @Autowired
+    private CartService cartService;
+
+    @PostMapping("/add")
+    public ResponseEntity<String> addProduct(@RequestParam String productName) {
+        if (cartService.addProductToCart(productName)) {
+            return ResponseEntity.ok("Product added");
+        }
+        return ResponseEntity.status(404).body("NOT Ffound");
     }
 
-    public boolean createCart(int cartID, int customerID) {
-        for (Cart cart : carts) {
-            if (cart.getCartID() == cartID) {
-                return false; 
-            }
+    @DeleteMapping("/remove")
+    public ResponseEntity<String> removeProduct(@RequestParam String productName) {
+        if (cartService.removeProductFromCart(productName)) {
+            return ResponseEntity.ok("Product removed");
         }
-        carts.add(new Cart(cartID, customerID, 0, new Product[]{}));
-        return true; 
+        return ResponseEntity.status(404).body("NOT FOUND");
     }
 
-    public Cart getCart(int cartID) {
-        for (Cart cart : carts) {
-            if (cart.getCartID() == cartID) {
-                return cart;
-            }
-        }
-        return null; 
+    @DeleteMapping("/clear")
+    public ResponseEntity<String> clearCart() {
+        cartService.clearCart();
+        return ResponseEntity.ok("Cart emptied");
     }
 
-    public boolean addProductToCart(int cartID, Product product) {
-        Cart cart = getCart(cartID);
-        if (cart != null) {
-            cart.addProduct(product);
-            return true; 
-        }
-        return false; 
-    }
+    @GetMapping
+    public ResponseEntity<Map<String, Object>> getCart() {
+        List<CartItem> items = cartService.getCartItems();
+        double total = cartService.getTotalPrice();
 
-    public boolean removeProductFromCart(int cartID, Product product) {
-        Cart cart = getCart(cartID);
-        if (cart != null) {
-            cart.removeProduct(product);
-            return true; 
-        }
-        return false; 
-    }
+        Map<String, Object> response = new HashMap<>();
+        response.put("items in cart", items);
+        response.put("Sub-total", total);
+        response.put("count", items.size());
 
-    public float getCartTotalPrice(int cartID) {
-        Cart cart = getCart(cartID);
-        if (cart != null) {
-            return cart.getTotalPrice();
-        }
-        return -1; 
-    }
-
-    public void listCartProducts(int cartID) {
-        Cart cart = getCart(cartID);
-        if (cart != null) {
-            for (Product product : cart.getListProducts()) {
-                System.out.println(product.getName() + " - $" + product.getPrice());
-            }
-        } else {
-            System.out.println("Cart not found.");
-        }
-    }
-
-    public boolean clearCart(int cartID) {
-        Cart cart = getCart(cartID);
-        if (cart != null) {
-            cart.setListProducts(new ArrayList<>());
-            cart.setTotalPrice(0);
-            return true; 
-        }
-        return false; 
+        return ResponseEntity.ok(response);
     }
 }
