@@ -8,13 +8,13 @@ public class Order{
 	private String orderDate;
 	private String status;
 
-	public Order(String orderID, String customerID, ArrayList<Product> productList, double price, String orderDate, String status){
+	public Order(String orderID, String customerID, double price, String orderDate, String status, ArrayList<Product> productList){
 		this.orderID = orderID;
 		this.customerID = customerID;
-		this productList = productList;
 		this.price = price;
 		this.orderDate = orderDate;
 		this.status = status;
+		this productList = productList;
 	}
 
 	public String getOrderID(){
@@ -22,9 +22,6 @@ public class Order{
 	}
 	public String getCustomerID(){
 		return customerID;
-	}
-	public ArrayList<Product> getProductList(){
-		return productList;
 	}
 	public double getPrice(){
 		return price;
@@ -35,6 +32,9 @@ public class Order{
 	public String getStatus(){
 		return status;
 	}
+	public ArrayList<Product> getProductList(){
+		return productList;
+	}
 	
 
 	public void setOrderID(String orderID){
@@ -42,9 +42,6 @@ public class Order{
 	}
 	public void setCustomerID(String customerID){
 		this.customerID = customerID;
-	}
-	public void setProductList(ArrayList<Product> productList){
-		this.productList = productList;
 	}
 	public void setPrice(double price){
 		this.price = price;
@@ -54,5 +51,8 @@ public class Order{
 	}
 	public void setStatus(String status){
 		this.status = status;
+	}
+	public void setProductList(ArrayList<Product> productList){
+		this.productList = productList;
 	}
 }
