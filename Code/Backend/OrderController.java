@@ -16,17 +16,15 @@ public class OrderController{
 	}
 
 	public void removeOrder(String orderID){
-		//go through the list and loop
-        for(Order order : orders){
-
-            //if orderID is found, remove
-            if(order.getOrderID().equals(orderID)){
-                orders.remove(order);
-                System.out.println("Order with orderID " + orderID + " has been removed.");
-            }
-        }
-        //if not, it doesnt exist
-        System.out.println("Order does not exist.");
+		//loop down
+        for (int i = orders.size() - 1; i >= 0; i--) {
+       		if (orders.get(i).getOrderID().equals(orderID)) {
+            	orders.remove(i);
+            	System.out.println("Order with orderID " + orderID + " has been removed.");
+            	return;
+        	}
+    	}
+    	System.out.println("Order with orderID " + orderID + " not found.");
 	}
 
 	public ArrayList<Order> listAllOrders() {
@@ -50,17 +48,12 @@ public class OrderController{
 
 	/* this method searches through the orders list and looks for a customer id, to list
 	   all orders that have been placed by a customer.*/
-	public ArrayList<Order> returnAllOrdersByCustomerID(String customerID){
-
-		//creating a seperate list to store all orders with the same customer id
-		ArrayList<Order> allOrdersOfCustomer = new ArrayList<Order>();
-
+	public void returnAllOrdersByCustomerID(String customerID){
 		for(Order order : orders){
 			if(order.getCustomerID().equals(customerID)){
-				allOrdersOfCustomer.add(order);
+				System.out.println(order);
 			}
 		}
-		return allOrdersOfCustomer;
 	}
 
 	// method to load all the products in the txt file into the products list
@@ -77,7 +70,7 @@ public class OrderController{
 				Scanner scnr = new Scanner(file);
 				// assign to line and loop through all lines
 				while (scnr.hasNextLine()) {
-					String line = scnr.nextLine();
+					String line = scnr.nextLine().trim();
 
 					// split each line into 6 parts for each attribute
 					String[] splittedLine = line.split(", ");
@@ -87,7 +80,7 @@ public class OrderController{
 						//assign each index to its parameter
 						String orderID = splittedLine[0].trim();
 						String customerID = splittedLine[1].trim();
-						double price = Double.parseDouble(splittedLine[2]);
+						double price = Double.parseDouble(splittedLine[2].trim());
 						String orderDate = splittedLine[3].trim();
 						String status = splittedLine[4].trim();
 
@@ -97,14 +90,14 @@ public class OrderController{
 						ArrayList<Product> productList = new ArrayList<>();
 
 						//now i loop, and split the information of the products in 4 pieces
-						for(int i = 0; i <= productsSplit.length; i++){
+						for(int i = 0; i < productsSplit.length; i++){
 							String productInfo = productsSplit[i];
 							String[]productArray = productInfo.split(":");
 							if(productArray.length == 4){
 								String productID = productArray[0].trim();
 								String productName = productArray[1].trim();
-								double cost = Double.parseDouble(productArray[2]);
-								int amount = Integer.parseInt(productArray[3]); 
+								double cost = Double.parseDouble(productArray[2].trim());
+								int amount = Integer.parseInt(productArray[3].trim()); 
 
 								productList.add(new Product(productID, productName, cost, amount));						
 							}
@@ -127,7 +120,7 @@ public class OrderController{
 	public void saveOrder() {
 		try {
 			// create a writer
-			PrintWriter writer = new PrintWriter("order.txt");
+			PrintWriter writer = new PrintWriter("orders.txt");
 
 			// loop through orders and print them
 			for (Order order : orders) {

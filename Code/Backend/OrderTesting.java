@@ -13,7 +13,7 @@ public class OrderTesting{
         ArrayList<Product> products = new ArrayList<>();
 		products.add(new Product("P01", "Keyboard", 15.00, 1));
 		products.add(new Product("P02", "Headphones", 15.00, 1));
-        Order newOrder = new Order("O03", "C03", 30.00, "03-10-2025", "delivered", products);
+        Order newOrder = new Order("O04", "C03", 30.00, "03-10-2025", "delivered", products);
         cntr.addOrder(newOrder);
         cntr.saveOrder();  // Save to file
         System.out.println("After adding new order:");
@@ -31,12 +31,12 @@ public class OrderTesting{
         cntr.listAllOrders();
 
         //check for removed order
-        System.out.println("\nDoes customer with id O05 exist?");
+        System.out.println("\nDoes customer with custumerID C05 exist?");
         exists = cntr.doesOrderExist("C02");
         System.out.println(exists ? "Yes" : "No");
 
-        //get all orders
-        System.out.println("\nGet order O01's informations:");
-        cntr.returnAllOrdersByCustomerID("O01");
+        //get all orders of customer C01
+        System.out.println("\nGet all orders of customer C03:");
+        cntr.returnAllOrdersByCustomerID("C03");
 	}
 }
