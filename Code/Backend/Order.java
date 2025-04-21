@@ -1,14 +1,14 @@
 import java.util.ArrayList;
 
 public class Order{
-	private int orderID;
-	private int customerID;
+	private String orderID;
+	private String customerID;
 	private ArrayList<Product> productList;
 	private double price;
 	private String orderDate;
 	private String status;
 
-	public Order(int orderID, int customerID, ArrayList<Product> productList, double price, String orderDate, String status){
+	public Order(String orderID, String customerID, ArrayList<Product> productList, double price, String orderDate, String status){
 		this.orderID = orderID;
 		this.customerID = customerID;
 		this productList = productList;
@@ -17,10 +17,10 @@ public class Order{
 		this.status = status;
 	}
 
-	public int getOrderID(){
+	public String getOrderID(){
 		return orderID;
 	}
-	public int getCustomerID(){
+	public String getCustomerID(){
 		return customerID;
 	}
 	public ArrayList<Product> getProductList(){
@@ -37,10 +37,10 @@ public class Order{
 	}
 	
 
-	public void setOrderID(int orderID){
+	public void setOrderID(String orderID){
 		this.orderID = orderID;
 	}
-	public void setCustomerID(int customerID){
+	public void setCustomerID(String customerID){
 		this.customerID = customerID;
 	}
 	public void setProductList(ArrayList<Product> productList){
