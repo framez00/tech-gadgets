@@ -1,15 +1,19 @@
+import java.util.ArrayList;
+
 public class Order{
 	private int orderID;
 	private int customerID;
-	private double total;
-	private double tax;
+	private ArrayList<Product> productList;
+	private double price;
+	private String orderDate;
 	private String status;
 
-	public Order(int orderID, int customerID, double total, double tax, String status){
+	public Order(int orderID, int customerID, ArrayList<Product> productList, double price, String orderDate, String status){
 		this.orderID = orderID;
 		this.customerID = customerID;
-		this.total = total;
-		this.tax = tax;
+		this productList = productList;
+		this.price = price;
+		this.orderDate = orderDate;
 		this.status = status;
 	}
 
@@ -19,15 +23,19 @@ public class Order{
 	public int getCustomerID(){
 		return customerID;
 	}
-	public double getTotal(){
-		return total;
+	public ArrayList<Product> getProductList(){
+		return productList;
 	}
-	public double getTax(){
-		return tax;
+	public double getPrice(){
+		return price;
+	}
+	public String getOrderDate(){
+		return orderDate;
 	}
 	public String getStatus(){
 		return status;
 	}
+	
 
 	public void setOrderID(int orderID){
 		this.orderID = orderID;
@@ -35,11 +43,14 @@ public class Order{
 	public void setCustomerID(int customerID){
 		this.customerID = customerID;
 	}
-	public void setTotal(double total){
-		this.total = total;
+	public void setProductList(ArrayList<Product> productList){
+		this.productList = productList;
 	}
-	public void setTax(double tax){
-		this.tax = tax;
+	public void setPrice(double price){
+		this.price = price;
+	}
+	public void setOrderDate(String orderDate){
+		this.orderDate = orderDate;
 	}
 	public void setStatus(String status){
 		this.status = status;
