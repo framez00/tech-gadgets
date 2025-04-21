@@ -21,7 +21,6 @@
 public class Product {
 	private String productID;
 	private String productName;
-	private String description;
 	private double price;
 	private int quantity;
 
@@ -48,14 +47,6 @@ public class Product {
 		this.productName = productName;
 	}
 
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
 	public double getPrice() {
 		return price;
 	}
@@ -70,5 +61,10 @@ public class Product {
 
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
+	}
+
+	@Override
+	public String toString() {
+    	return productID + " : " + productName + " : " + price + " : " + quantity;
 	}
 }

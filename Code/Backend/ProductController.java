@@ -111,7 +111,7 @@ public class ProductController {
             //if productID is found, remove
             if(product.getProductID().equals(productID)){
                 products.remove(product);
-                System.out.println("Product with productID " + product + " has been removed.");
+                System.out.println("Product with productID " + productID + " has been removed.");
                 return true;
             }
         }

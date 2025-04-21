@@ -14,7 +14,7 @@ public class Order{
 		this.price = price;
 		this.orderDate = orderDate;
 		this.status = status;
-		this productList = productList;
+		this.productList = productList;
 	}
 
 	public String getOrderID(){

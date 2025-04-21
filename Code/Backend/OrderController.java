@@ -22,19 +22,17 @@ public class OrderController{
             //if orderID is found, remove
             if(order.getOrderID().equals(orderID)){
                 orders.remove(order);
-                System.out.println("Order with orderID " + order + " has been removed.");
-                return true;
+                System.out.println("Order with orderID " + orderID + " has been removed.");
             }
         }
         //if not, it doesnt exist
         System.out.println("Order does not exist.");
-        return false;
 	}
 
 	public ArrayList<Order> listAllOrders() {
 		for(Order order : orders){
-            System.out.println(order.getOrderID() + ", " + order.getCustomerID() + ", " + order.getProductList() + ", " +
-                               order.getPrice() + ", " + order.getOrderData() + ", " + order.getStatus());
+            System.out.println(order.getOrderID() + ", " + order.getCustomerID() + ", "  + order.getPrice() + ", " + 
+            				   order.getOrderDate() + ", " + order.getStatus() + ", " + order.getProductList());
         }
         return orders;
 	}
@@ -55,14 +53,14 @@ public class OrderController{
 	public ArrayList<Order> returnAllOrdersByCustomerID(String customerID){
 
 		//creating a seperate list to store all orders with the same customer id
-		ArrayList<Order> allOrdersOfCustomer = new ArrayList<Order>;
+		ArrayList<Order> allOrdersOfCustomer = new ArrayList<Order>();
 
 		for(Order order : orders){
 			if(order.getCustomerID().equals(customerID)){
 				allOrdersOfCustomer.add(order);
 			}
-			return allOrdersOfCustomer;
 		}
+		return allOrdersOfCustomer;
 	}
 
 	// method to load all the products in the txt file into the products list
@@ -84,36 +82,57 @@ public class OrderController{
 					// split each line into 6 parts for each attribute
 					String[] splittedLine = line.split(", ");
 
-					// save the splits in the line in 4 []
-					if (splittedLine.length == 4) {
-						String productID = splittedLine[0];
-						String productName = splittedLine[1];
+					// save the splits in the line in 6 []
+					if (splittedLine.length == 6) {
+						//assign each index to its parameter
+						String orderID = splittedLine[0].trim();
+						String customerID = splittedLine[1].trim();
 						double price = Double.parseDouble(splittedLine[2]);
-						int quantity = Integer.parseInt(splittedLine[3]);
+						String orderDate = splittedLine[3].trim();
+						String status = splittedLine[4].trim();
 
-						// add products
-						products.add(new Product(productID, productName, price, quantity));
+						//now im splitting index 5 and by each / to create product array
+						String productsLine = splittedLine[5].trim();
+						String[]productsSplit = productsLine.split("/");
+						ArrayList<Product> productList = new ArrayList<>();
+
+						//now i loop, and split the information of the products in 4 pieces
+						for(int i = 0; i <= productsSplit.length; i++){
+							String productInfo = productsSplit[i];
+							String[]productArray = productInfo.split(":");
+							if(productArray.length == 4){
+								String productID = productArray[0].trim();
+								String productName = productArray[1].trim();
+								double cost = Double.parseDouble(productArray[2]);
+								int amount = Integer.parseInt(productArray[3]); 
+
+								productList.add(new Product(productID, productName, cost, amount));						
+							}
+						}
+
+						orders.add(new Order(orderID, customerID, price, orderDate, status, productList));
+
 					}
 				}
 				scnr.close();
 			} catch (Exception e) {
-				System.out.println("Error: could not load the products." + e.getMessage());
+				System.out.println("Error: could not load the order." + e.getMessage());
 			}
 		} else {
-			System.out.println("File products.txt does not exist.");
-		}
+			System.out.println("File order.txt does not exist.");
+		} 
 	}
 
-	// method to save products and write them back into the txt file
-	public void saveProducts() {
+	// method to save order and write them back into the txt file
+	public void saveOrder() {
 		try {
 			// create a writer
-			PrintWriter writer = new PrintWriter("products.txt");
+			PrintWriter writer = new PrintWriter("order.txt");
 
-			// loop through products and print them
-			for (Product product : products) {
-				String line = product.getProductID() + ", " + product.getProductName() + ", " +
-						product.getPrice() + ", " + product.getQuantity();
+			// loop through orders and print them
+			for (Order order : orders) {
+				String line = order.getOrderID() + ", " + order.getCustomerID() + ", " +
+						order.getPrice() + ", " + order.getOrderDate() + ", " + order.getStatus() + ", " + order.getProductList();
 				writer.println(line);
 			}
 			writer.close();
