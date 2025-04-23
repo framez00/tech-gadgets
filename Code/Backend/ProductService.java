@@ -18,65 +18,55 @@
  * - File parsing using BufferedReader.
  * - Stream filtering for search functionality: clean, efficient for in-memory usage.
  */
-package com.infinitytech.ecommerce.service;
+import java.io.*;
+import java.util.*;
 
-import com.infinitytech.ecommerce.model.Product;
-import org.springframework.stereotype.Service;
-
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
-
-@Service
 public class ProductService {
+    private List<Product> products;
 
-    private final List<Product> productList = new ArrayList<>();
+    public ProductService(String filename) {
+        products = new ArrayList<>();
+        loadProductsFromFile(filename);
+    }
 
-    public ProductService() {
-        try (InputStream is = getClass().getClassLoader().getResourceAsStream("products.txt")) {
-            if (is == null) {
-                System.out.println("products.txt not found ");
-                return;
-            }
-
-            BufferedReader reader = new BufferedReader(new InputStreamReader(is));
+    private void loadProductsFromFile(String filename) {
+        try (BufferedReader br = new BufferedReader(new FileReader(filename))) {
             String line;
-            while ((line = reader.readLine()) != null) {
-                String[] parts = line.split(",", 5);
-                if (parts.length == 5) {
-                    String id = parts[0].trim();
-                    String name = parts[1].trim();
-                    String category = parts[2].trim();
-                    String description = parts[3].trim();
-                    double price = Double.parseDouble(parts[4].trim());
-
-                    productList.add(new Product(id, name, category, description, price));
+            while ((line = br.readLine()) != null) {
+                String[] parts = line.split(",");
+                if (parts.length == 4) {
+                    String id = parts[0];
+                    String name = parts[1];
+                    String category = parts[2];
+                    double price = Double.parseDouble(parts[3]);
+                    products.add(new Product(id, name, category, price));
                 }
             }
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (IOException e) {
+            System.out.println("Failed to load products.");
         }
     }
 
     public List<Product> getAllProducts() {
-        return productList;
+        return products;
     }
 
-    public Product getProductByName(String name) {
-        return productList.stream()
-                .filter(p -> p.getName().equalsIgnoreCase(name))
-                .findFirst()
-                .orElse(null);
+    public Product findProductByIdOrName(String input) {
+        for (Product p : products) {
+            if (p.getProductID().equalsIgnoreCase(input) || p.getProductName().equalsIgnoreCase(input)) {
+                return p;
+            }
+        }
+        return null;
     }
 
-    public List<Product> searchProducts(String query) {
-        if (query == null || query.isEmpty()) return productList;
-        return productList.stream()
-                .filter(p -> p.getName().toLowerCase().contains(query.toLowerCase())
-                        || p.getCategory().toLowerCase().contains(query.toLowerCase()))
-                .collect(Collectors.toList());
+    public List<Product> searchProducts(String keyword) {
+        List<Product> result = new ArrayList<>();
+        for (Product p : products) {
+            if (p.getProductName().toLowerCase().contains(keyword.toLowerCase())) {
+                result.add(p);
+            }
+        }
+        return result;
     }
 }
