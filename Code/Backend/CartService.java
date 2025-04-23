@@ -19,94 +19,70 @@
  * Algorithms:
  * - Stream filtering (getProductByName): Simple and sufficient for small in-memory product list.
  */
-package com.infinitytech.ecommerce.service;
-
-import com.infinitytech.ecommerce.model.Cart;
-import com.infinitytech.ecommerce.model.CartItem;
-import com.infinitytech.ecommerce.model.Product;
-import org.springframework.stereotype.Service;
-
 import java.io.*;
-import java.util.List;
+import java.util.*;
 
-@Service
 public class CartService {
+    private List<Product> cart;
+    private final String CART_FILE = "cart.txt";
 
-    private static final String CART_FILE_PATH = "src/main/resources/cart.txt";
-    private final Cart cart = new Cart();
-    private final ProductService productService;
-
-    public CartService(ProductService productService) {
-        this.productService = productService;
+    public CartService() {
+        cart = new ArrayList<>();
         loadCartFromFile();
     }
 
     private void loadCartFromFile() {
-        cart.clearCart();
-        try (BufferedReader reader = new BufferedReader(new FileReader(CART_FILE_PATH))) {
+        File file = new File(CART_FILE);
+        if (!file.exists()) return;
+
+        try (BufferedReader br = new BufferedReader(new FileReader(file))) {
             String line;
-            while ((line = reader.readLine()) != null) {
-                String[] parts = line.split(",", 6);
-                if (parts.length == 6) {
-                    Product product = new Product(
-                        parts[0].trim(),
-                        parts[1].trim(),
-                        parts[2].trim(),
-                        parts[3].trim(),
-                        Double.parseDouble(parts[4].trim())
-                    );
-                    int qty = Integer.parseInt(parts[5].trim());
-                    cart.addProduct(product, qty);
+            while ((line = br.readLine()) != null) {
+                String[] parts = line.split(",");
+                if (parts.length == 4) {
+                    String id = parts[0];
+                    String name = parts[1];
+                    String category = parts[2];
+                    double price = Double.parseDouble(parts[3]);
+                    cart.add(new Product(id, name, category, price));
                 }
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("Failed to load cart.");
         }
     }
 
-    private void saveCartToFile() {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(CART_FILE_PATH))) {
-            for (CartItem item : cart.getItems()) {
-                Product p = item.getProduct();
-                writer.write(String.join(",", p.getId(), p.getName(), p.getCategory(),
-                        p.getDescription(), String.valueOf(p.getPrice()), String.valueOf(item.getQuantity())));
-                writer.newLine();
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public boolean addProductToCart(String productName) {
-        Product product = productService.getProductByName(productName);
-        if (product != null) {
-            cart.addProduct(product, 1);
-            saveCartToFile();
-            return true;
-        }
-        return false;
-    }
-
-    public boolean removeProductFromCart(String productName) {
-        Product product = productService.getProductByName(productName);
-        if (product != null) {
-            cart.removeProduct(product.getId());
-            saveCartToFile();
-            return true;
-        }
-        return false;
-    }
-
-    public void clearCart() {
-        cart.clearCart();
+    public void addToCart(Product product) {
+        cart.add(product);
         saveCartToFile();
     }
 
-    public List<CartItem> getCartItems() {
-        return cart.getItems();
+    public void removeFromCart(String input) {
+        cart.removeIf(p -> p.getProductID().equalsIgnoreCase(input) || p.getProductName().equalsIgnoreCase(input));
+        saveCartToFile();
     }
 
-    public double getTotalPrice() {
-        return cart.getTotalPrice();
+    public void clearCart() {
+        cart.clear();
+        saveCartToFile();
+    }
+
+    public List<Product> getCartItems() {
+        return cart;
+    }
+
+    public double getTotal() {
+        return cart.stream().mapToDouble(Product::getPrice).sum();
+    }
+
+    private void saveCartToFile() {
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(CART_FILE))) {
+            for (Product p : cart) {
+                bw.write(String.format("%s,%s,%s,%.2f", p.getProductID(), p.getProductName(), p.getCategory(), p.getPrice()));
+                bw.newLine();
+            }
+        } catch (IOException e) {
+            System.out.println("Failed to save cart.");
+        }
     }
 }
