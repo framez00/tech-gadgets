@@ -23,6 +23,6 @@ public class CartItem {
     public void setProduct(Product product) { this.product = product; }
 
     public double getTotalPrice() {
-        return product.getPrice();
+        return product.getPrice();  
     }
 }
