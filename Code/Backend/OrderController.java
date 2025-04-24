@@ -62,7 +62,7 @@ public class OrderController{
 		File file = new File("orders.txt");
 
 		// clear the list so there are no duplicates
-		orders.clear();
+		//orders.clear();
 
 		if (file.exists()) {
 			try {
@@ -112,7 +112,7 @@ public class OrderController{
 				System.out.println("Error: could not load the order." + e.getMessage());
 			}
 		} else {
-			System.out.println("File order.txt does not exist.");
+			System.out.println("File orders.txt does not exist.");
 		} 
 	}
 
@@ -131,6 +131,78 @@ public class OrderController{
 			writer.close();
 		} catch (Exception e) {
 			System.out.println("Error: Could not save the products into products.txt." + e.getMessage());
+		}
+	}
+
+	public String createOrderID(){
+		return "O" + (orders.size() + 1);
+	}
+
+	public boolean updateOrderStatus(String orderID, String status){
+		for(Order order : orders){
+			if(order.getOrderID().equals(orderID)){
+				order.setStatus(status);
+				saveOrder();
+				return true;
+			}
+		}
+		return false;
+	}
+
+	public void pullProductsFromCartIntoOrder(String customerID){
+		// create the file that i will load products from
+		File file = new File("cart.txt");
+
+		ArrayList<Product> products = new ArrayList<>();
+
+		if (file.exists()) {
+			try {
+				// create scanner
+				Scanner scnr = new Scanner(file);
+				// assign to line and loop trhough all lines
+				while (scnr.hasNextLine()) {
+					String line = scnr.nextLine();
+
+					// split each line into 4 parts for each attribute
+					String[] splittedLine = line.split(", ");
+
+					// save the splits in the line in 4 []
+					if (splittedLine.length == 4) {
+						String productID = splittedLine[0];
+						String productName = splittedLine[1];
+						double price = Double.parseDouble(splittedLine[2]);
+						int quantity = Integer.parseInt(splittedLine[3]);
+
+						// add products
+						products.add(new Product(productID, productName, price, quantity));
+					}
+				}
+				scnr.close();
+			} catch (Exception e) {
+				System.out.println("Error: could not load the cart." + e.getMessage());
+			}
+
+			if(products.isEmpty()){
+				System.out.println("Cart is empty.");
+				return;
+			}
+
+			//Creating the order after pullig the items from the cart
+			double price = 0;
+			for(Product product : products){
+				price = price + (product.getPrice() * product.getQuantity());
+			}
+
+			String orderID = createOrderID();
+			String orderDate = java.time.LocalDate.now().toString();
+			String status = "pending";
+
+			Order order = new Order(orderID, customerID, price, orderDate, status, products);
+			orders.add(order);
+
+			System.out.printf("The order with order ID %s was successfully placed\n", orderID);
+		} else {
+			System.out.println("File carts.txt does not exist.");
 		}
 	}
 
