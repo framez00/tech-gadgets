@@ -33,13 +33,13 @@ public class ProductService {
         try (BufferedReader br = new BufferedReader(new FileReader(filename))) {
             String line;
             while ((line = br.readLine()) != null) {
-                String[] parts = line.split(",");
+                String[] parts = line.split(", ");
                 if (parts.length == 4) {
                     String id = parts[0];
                     String name = parts[1];
-                    String category = parts[2];
-                    double price = Double.parseDouble(parts[3]);
-                    products.add(new Product(id, name, category, price));
+                    double price = Double.parseDouble(parts[2]);
+                    int quantity = Integer.parseInt(parts[3]);
+                    products.add(new Product(id, name, price, quantity));
                 }
             }
         } catch (IOException e) {
