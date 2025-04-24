@@ -1,7 +1,7 @@
 /**
  * Class Name: Cart
  * Date: April 17, 2025
- * Programmer: Gabriel Jose Lopez Reyes
+ * Programmer: Gabriel Jose Lopez Reyes 2
  *
  * Description:
  * Maintains the list of items in a cart and provides operations for total pricing,
