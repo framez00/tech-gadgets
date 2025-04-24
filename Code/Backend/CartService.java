@@ -38,13 +38,13 @@ public class CartService {
         try (BufferedReader br = new BufferedReader(new FileReader(file))) {
             String line;
             while ((line = br.readLine()) != null) {
-                String[] parts = line.split(",");
+                String[] parts = line.split(", ");
                 if (parts.length == 4) {
                     String id = parts[0];
                     String name = parts[1];
-                    String category = parts[2];
-                    double price = Double.parseDouble(parts[3]);
-                    cart.add(new Product(id, name, category, price));
+                    double price = Double.parseDouble(parts[2]);
+                    int quantity = Integer.parseInt(parts[3]);
+                    cart.add(new Product(id, name, price, quantity));
                 }
             }
         } catch (IOException e) {
@@ -78,11 +78,11 @@ public class CartService {
     private void saveCartToFile() {
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(CART_FILE))) {
             for (Product p : cart) {
-                bw.write(String.format("%s,%s,%s,%.2f", p.getProductID(), p.getProductName(), p.getCategory(), p.getPrice()));
+                bw.write(String.format("%s, %s, %.2f, %d", p.getProductID(), p.getProductName(), p.getPrice(), p.getQuantity()));
                 bw.newLine();
             }
         } catch (IOException e) {
-            System.out.println("Failed to save cart.");
+            System.out.println("fail");
         }
     }
 }
