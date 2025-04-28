@@ -1,4 +1,3 @@
-01, JVC Headphones, 29.99, 10
 02, Sony Headphones, 29.99, 10
 03, Windows Laptop, 399.99, 10
 04, Asus Laptop, 399.99, 10
@@ -8,3 +7,4 @@
 08, iPhone, 599.99, 10
 09, Garmin Smartwatch, 299.99, 10
 10, Apple Watch, 299.99, 10
+11, Mouse, 9.99, 10

@@ -1,0 +1,4 @@
+O2, C02, 200.0, 04-20-2025, pending, [P01 : Phone : 100.0 : 1, P02 : Laptop : 100.0 : 1]
+O3, C03, 30.0, 03-10-2025, delivered, [P01 : Keyboard : 15.0 : 1, P02 : Headphones : 15.0 : 1]
+O4, C03, 30.0, 03-10-2025, delivered, [P01 : Keyboard : 15.0 : 1, P02 : Headphones : 15.0 : 1]
+O4, C01, 1035.0, 2025-04-28, pending, [P01 : Keyboard : 15.0 : 1, P02 : Mouse : 10.0 : 2, P03 : Laptop : 1000.0 : 1]

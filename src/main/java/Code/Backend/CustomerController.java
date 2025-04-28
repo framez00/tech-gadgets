@@ -1,3 +1,5 @@
+package Code.Backend;
+
 import java.util.ArrayList;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -13,15 +15,21 @@ import java.time.LocalDate;
  * (c) Programmer: Fahim Ramez
  *
  * (d) Description:
- * This class handles customer-related operations including loading from and saving to a file,
+ * This class handles customer-related operations including loading from and
+ * saving to a file,
  * adding, updating, removing, and listing customer data.
- * It acts as the controller for managing customer records in memory and persistent storage.
+ * It acts as the controller for managing customer records in memory and
+ * persistent storage.
  *
  * (e) Important Functions:
- * - loadCustomers(): Loads customer data from customers.txt text file and populates the `customers` list.
- * - saveCustomers(): Saves current customer data into the customers.txt text file.
- * - addCustomer(): Adds a new customer, but only if the email hasnt been used yet.
- * - getCustomerInformation(): Displays full information of a customer by userID.
+ * - loadCustomers(): Loads customer data from customers.txt text file and
+ * populates the `customers` list.
+ * - saveCustomers(): Saves current customer data into the customers.txt text
+ * file.
+ * - addCustomer(): Adds a new customer, but only if the email hasnt been used
+ * yet.
+ * - getCustomerInformation(): Displays full information of a customer by
+ * userID.
  * - updateCustomerDetails(): Updates the customer's contact information.
  * - removeCustomer(): Deletes a customer by userID.
  * - doesCustomerExist(): Checks existence of a customer by userID.
@@ -31,8 +39,9 @@ import java.time.LocalDate;
  * - ArrayList Customer: is used to store and manage the list of all customers.
  *
  * (g) Algorithms:
- * - Simple linear search is used to find customers by userID or email. I figured it was enough to do that since
- *   we don't have much data.
+ * - Simple linear search is used to find customers by userID or email. I
+ * figured it was enough to do that since
+ * we don't have much data.
  */
 
 public class CustomerController {
@@ -43,27 +52,27 @@ public class CustomerController {
         loadCustomers();
     }
 
-    //method to load all the customers in the txt file into the customer list
-    public void loadCustomers(){
-        //create the file that i will load products from
+    // method to load all the customers in the txt file into the customer list
+    public void loadCustomers() {
+        // create the file that i will load products from
         File file = new File("customers.txt");
 
-        //clear the list so there are no duplicates
+        // clear the list so there are no duplicates
         customers.clear();
 
-        if(file.exists()){
-            try{
-                //create scanner
+        if (file.exists()) {
+            try {
+                // create scanner
                 Scanner scnr = new Scanner(file);
-                //assign to line and loop trhough all lines
-                while(scnr.hasNextLine()){
+                // assign to line and loop trhough all lines
+                while (scnr.hasNextLine()) {
                     String line = scnr.nextLine();
 
-                    //split each line into 10 parts for each attribute
-                    String[]splittedLine = line.split(", ");
+                    // split each line into 10 parts for each attribute
+                    String[] splittedLine = line.split(", ");
 
-                    //save the splits in the line in 10 []
-                    if(splittedLine.length == 10){
+                    // save the splits in the line in 10 []
+                    if (splittedLine.length == 10) {
                         String userID = splittedLine[0];
                         String firstName = splittedLine[1];
                         String lastName = splittedLine[2];
@@ -74,34 +83,37 @@ public class CustomerController {
                         String state = splittedLine[7];
                         int zip = Integer.parseInt(splittedLine[8]);
                         String phoneNumber = splittedLine[9];
-                        
-                        //add customers
-                        customers.add(new Customer(userID, firstName, lastName, dob, email, street, city, state, zip, phoneNumber));
+
+                        // add customers
+                        customers.add(new Customer(userID, firstName, lastName, dob, email, street, city, state, zip,
+                                phoneNumber));
                     }
                 }
                 scnr.close();
-            }catch(Exception e){
+            } catch (Exception e) {
                 System.out.println("Error: could not load the customers." + e.getMessage());
             }
-        }else{
+        } else {
             System.out.println("File customers.txt does not exist.");
         }
     }
 
-    //method to save customers and write them back into the txt file
-    public void saveCustomers(){
-        try{
-            //create a writer
+    // method to save customers and write them back into the txt file
+    public void saveCustomers() {
+        try {
+            // create a writer
             PrintWriter writer = new PrintWriter("customers.txt");
-    
-            //loop through customers and print them
-            for(Customer customer : customers){
-                String line = customer.getUserID() + ", " + customer.getFirstName() + ", " + customer.getLastName() + ", " + customer.getDob() + ", " + customer.getEmail() + 
-                              ", " + customer.getStreet() + ", " + customer.getCity() + ", " + customer.getState() + ", " + customer.getZip() + ", " +  customer.getPhoneNumber();
+
+            // loop through customers and print them
+            for (Customer customer : customers) {
+                String line = customer.getUserID() + ", " + customer.getFirstName() + ", " + customer.getLastName()
+                        + ", " + customer.getDob() + ", " + customer.getEmail() +
+                        ", " + customer.getStreet() + ", " + customer.getCity() + ", " + customer.getState() + ", "
+                        + customer.getZip() + ", " + customer.getPhoneNumber();
                 writer.println(line);
             }
             writer.close();
-        }catch (Exception e){
+        } catch (Exception e) {
             System.out.println("Error: Could not save the customer into customers.txt." + e.getMessage());
         }
     }
@@ -117,25 +129,38 @@ public class CustomerController {
     }
 
     public void getCustomerInformation(String userID) {
-    for (Customer customer : customers) {
-        if (customer.getUserID().equals(userID)) {
-            System.out.println("CustomerID: " + customer.getUserID() + ", Name: " + customer.getFirstName() + " " + customer.getLastName() + ", DOB: " + customer.getDob() + ", " +
-                               "Email: " + customer.getEmail() + ", Address " + customer.getStreet() + " " + customer.getCity() + " " + customer.getState() + " " + customer.getZip() + 
-                               ", Phone Number: " + customer.getPhoneNumber());
-            return;
+        for (Customer customer : customers) {
+            if (customer.getUserID().equals(userID)) {
+                System.out.println("CustomerID: " + customer.getUserID() + ", Name: " + customer.getFirstName() + " "
+                        + customer.getLastName() + ", DOB: " + customer.getDob() + ", " +
+                        "Email: " + customer.getEmail() + ", Address " + customer.getStreet() + " " + customer.getCity()
+                        + " " + customer.getState() + " " + customer.getZip() +
+                        ", Phone Number: " + customer.getPhoneNumber());
+                return;
+            }
         }
-    }
-    System.out.println("Customer does not exist.");
+        System.out.println("Customer does not exist.");
     }
 
-    public boolean updateCustomerDetails(String userID, String email, String newStreet, String newCity, String newState, int newZip, String newPhoneNumber) {
-        for(Customer customer : customers){
-            if(customer.getUserID().equals(userID)){
-                if(email != null){customer.setEmail(email);}
-                if(newStreet != null){customer.setStreet(newStreet);}
-                if(newCity != null){customer.setCity(newCity);}
-                if(newZip != 0){customer.setZip(newZip);}
-                if(newPhoneNumber != null){customer.setPhoneNumber(newPhoneNumber);}
+    public boolean updateCustomerDetails(String userID, String email, String newStreet, String newCity, String newState,
+            int newZip, String newPhoneNumber) {
+        for (Customer customer : customers) {
+            if (customer.getUserID().equals(userID)) {
+                if (email != null) {
+                    customer.setEmail(email);
+                }
+                if (newStreet != null) {
+                    customer.setStreet(newStreet);
+                }
+                if (newCity != null) {
+                    customer.setCity(newCity);
+                }
+                if (newZip != 0) {
+                    customer.setZip(newZip);
+                }
+                if (newPhoneNumber != null) {
+                    customer.setPhoneNumber(newPhoneNumber);
+                }
                 return true;
             }
         }
@@ -143,24 +168,24 @@ public class CustomerController {
     }
 
     public boolean removeCustomer(String userID) {
-        //go through the list and loop
-        for(Customer customer : customers){
+        // go through the list and loop
+        for (Customer customer : customers) {
 
-            //if customerID is found, remove
-            if(customer.getUserID().equals(userID)){
+            // if customerID is found, remove
+            if (customer.getUserID().equals(userID)) {
                 customers.remove(customer);
                 System.out.println("Customer with userID " + userID + " has been removed.");
                 return true;
             }
         }
-        //if not, it doesnt exist
+        // if not, it doesnt exist
         System.out.println("Customer does not exist.");
         return false;
     }
 
     public boolean doesCustomerExist(String userID) {
-        for(Customer customer : customers){
-            if(customer.getUserID().equals(userID)){
+        for (Customer customer : customers) {
+            if (customer.getUserID().equals(userID)) {
                 System.out.println("Customer exists.");
                 return true;
             }
@@ -169,11 +194,11 @@ public class CustomerController {
         return false;
     }
 
-    //list all customers
-    public ArrayList<Customer>listAllCustomers(){
-        for(Customer customer : customers){
+    // list all customers
+    public ArrayList<Customer> listAllCustomers() {
+        for (Customer customer : customers) {
             System.out.println(customer.getUserID() + ", " + customer.getFirstName() + ", " +
-                               customer.getLastName() + ", " + customer.getEmail());
+                    customer.getLastName() + ", " + customer.getEmail());
         }
         return customers;
     }

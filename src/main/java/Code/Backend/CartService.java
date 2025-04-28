@@ -81,6 +81,23 @@ public class CartService {
         return cart.stream().mapToDouble(Product::getPrice).sum();
     }
 
+    public boolean addProductToCart(String productName) {
+        if (productName != null && !productName.isEmpty()) {
+            Product product = new Product(UUID.randomUUID().toString(), productName, 100.0, 1);
+            addToCart(product);
+            return true;
+        }
+        return false;
+    }
+
+    public boolean removeProductFromCart(String productName) {
+        if (productName != null && !productName.isEmpty()) {
+            removeFromCart(productName);
+            return true;
+        }
+        return false;
+    }
+
     private void saveCartToFile() {
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(CART_FILE))) {
             for (Product p : cart) {

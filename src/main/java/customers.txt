@@ -1,0 +1,2 @@
+C04, Tanjiro, Kamado, 2000-10-26, tanjiro.kamado@email.com, 19283 Elm Street, Los Angeles, CA, 91326, 8187469036
+C05, Zenitsu, Agatsuma, 2000-10-26, zenitsu.agatsuma@email.com, 19283 Elm Street, Los Angeles, CA, 91326, 8187469036
