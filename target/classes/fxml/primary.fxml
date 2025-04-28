@@ -52,12 +52,12 @@
                         <Image url="@../Product/Headphone/Headphone1/JVC_HA-RX700_01.png" />
                      </image>
                   </ImageView>
-                  <Label text=" JVC Headphone">
+                  <Label fx:id="jvclabel" text=" JVC Headphone">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <Button onAction="#addToCart" styleClass="round-blue" text="Add to cart" />
+                  <Button fx:id="jvcAddButton" onAction="#addToCart" styleClass="round-blue" text="Add to cart" />
                </children>
             </VBox>
             <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="15.0">
@@ -67,12 +67,12 @@
                         <Image url="@../Product/Laptop/Laptop1/1.jpg" />
                      </image>
                   </ImageView>
-                  <Label text="Lenovo - Ideapad 3">
+                  <Label fx:id="lenovolabel" text="Lenovo - Ideapad 3">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <Button onAction="#addToCart" styleClass="round-blue" text="Add to cart" />
+                  <Button fx:id="lenovoAddButton" onAction="#addToCart" styleClass="round-blue" text="Add to cart" />
                </children>
             </VBox>
             <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="15.0" GridPane.columnIndex="2">
@@ -82,12 +82,12 @@
                         <Image url="@../Product/smartwatch/smartwatch2/71QzAIFku1L._AC_UL495_SR435,495_.jpg" />
                      </image>
                   </ImageView>
-                  <Label text="Apple Watch Series 10">
+                  <Label fx:id="applewatchlabel" text="Apple Watch Series 10">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <Button onAction="#addToCart" styleClass="round-blue" text="Add to cart" />
+                  <Button fx:id="applewatchAddButton" onAction="#addToCart" styleClass="round-blue" text="Add to cart" />
                </children>
             </VBox>
             <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="15.0" GridPane.columnIndex="4">
@@ -97,8 +97,8 @@
                         <Image url="@../Product/Phone/Phone1/Apple_iPhone_16_Pro_Max_black_titanium_front_back1.png" />
                      </image>
                   </ImageView>
-                  <Label text="Iphone 16" />
-                  <Button onAction="#addToCart" styleClass="round-blue" text="Add to cart" />
+                  <Label fx:id="iphone16label" text="Iphone 16" />
+                  <Button fx:id="iphone16AddButton" onAction="#addToCart" styleClass="round-blue" text="Add to cart" />
                </children>
             </VBox>
             <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="15.0" GridPane.rowIndex="1">
@@ -119,8 +119,8 @@
                         <Image url="@../Product/Headphone/Headphone2/th.jpg" />
                      </image>
                   </ImageView>
-                  <Label text="Sonny Headphone" />
-                  <Button onAction="#addToCart" styleClass="round-blue" text="Add to cart" />
+                  <Label fx:id="sonylabel" text="Sony Headphone" />
+                  <Button fx:id="sonyAddButton" onAction="#addToCart" styleClass="round-blue" text="Add to cart" />
                </children>
             </VBox>
             <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="15.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
@@ -130,8 +130,8 @@
                         <Image url="@../Product/smartwatch/smartwatch1/garmin-smartwatch-010-02862-10-dynamic-right-view.jpg" />
                      </image>
                   </ImageView>
-                  <Label text="Garmin smartwatch" />
-                  <Button onAction="#addToCart" styleClass="round-blue" text="Add to cart" />
+                  <Label fx:id="garminlabel" text="Garmin smartwatch" />
+                  <Button fx:id="garminAddButton" onAction="#addToCart" styleClass="round-blue" text="Add to cart" />
                </children>
             </VBox>
             <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="15.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
@@ -141,8 +141,8 @@
                         <Image url="@../Product/Phone/Phone2/Apple-iPhone-15_-blue_featured-image-packshot-review.jpg" />
                      </image>
                   </ImageView>
-                  <Label text="Iphone 14" />
-                  <Button onAction="#addToCart" styleClass="round-blue" text="Add to cart" />
+                  <Label fx:id="iphone14label" text="Iphone 14" />
+                  <Button fx:id="iphone14AddButton" onAction="#addToCart" styleClass="round-blue" text="Add to cart" />
                </children>
             </VBox>
             <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="15.0" GridPane.columnIndex="4" GridPane.rowIndex="1">
@@ -152,8 +152,8 @@
                         <Image url="@../Product/Microphone/Microphone2/R.jpg" />
                      </image>
                   </ImageView>
-                  <Label text="SM7B  Vocal Microphone" />
-                  <Button onAction="#addToCart" styleClass="round-blue" text="Add to cart" />
+                  <Label fx:id="sm7blabel" text="SM7B  Vocal Microphone" />
+                  <Button fx:id="sm7bAddButton" onAction="#addToCart" styleClass="round-blue" text="Add to cart" />
                </children>
             </VBox>
             <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0" GridPane.columnIndex="3">
@@ -163,12 +163,12 @@
                         <Image url="@../Product/Microphone/Microphone1/.jpg" />
                      </image>
                   </ImageView>
-                  <Label text="Condenser Microphone">
+                  <Label fx:id="condenserlabel" text="Condenser Microphone">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <Button onAction="#addToCart" styleClass="round-blue" text="Add to cart" />
+                  <Button fx:id="condenserAddButton" onAction="#addToCart" styleClass="round-blue" text="Add to cart" />
                </children>
             </VBox>
          </children>
