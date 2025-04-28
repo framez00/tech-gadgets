@@ -1,20 +1,3 @@
-package com.example;
-
-import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
-import javafx.scene.Node;
-
 /**
  * Class Name: FXMLController
  * <p>
@@ -45,6 +28,34 @@ import javafx.scene.Node;
  * `loadProductPage()` to avoid redundancy,
  * improving maintainability and reducing code duplication.
  */
+
+package com.example;
+
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
+import javafx.scene.Node;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.GridPane;
+import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import Code.Backend.ProductService;
+
+import Code.Backend.Product;
+import Code.Backend.ProductService;
+
+import java.util.List;
 
 public class FXMLController implements Initializable {
 
@@ -162,4 +173,41 @@ public class FXMLController implements Initializable {
         stage.show();
     }
 
+    @FXML
+    private TextField searchField;
+
+    @FXML
+    private GridPane productGrid;
+
+    private final ProductService productService = new ProductService();
+
+    @FXML
+    public void handleSearch() {
+        String keyword = searchField.getText();
+        List<Product> results = productService.searchProducts(keyword);
+        productGrid.getChildren().clear();
+
+        int col = 0;
+        int row = 0;
+
+        for (Product p : results) {
+            VBox card = new VBox(5);
+            card.setStyle("-fx-padding: 10; -fx-border-color: #ccc; -fx-border-radius: 8;");
+            card.setPrefWidth(160);
+
+            Label name = new Label(p.getProductName());
+            Label price = new Label("Price: $" + p.getPrice());
+            Button add = new Button("Add to Cart");
+            add.setOnAction(this::addToCart);
+
+            card.getChildren().addAll(name, price, add);
+            productGrid.add(card, col, row);
+
+            col++;
+            if (col > 4) {
+                col = 0;
+                row++;
+            }
+        }
+    }
 }
