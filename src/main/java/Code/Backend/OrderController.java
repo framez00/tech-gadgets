@@ -226,4 +226,14 @@ public class OrderController {
 		return total;
 	}
 
+	public int countOrder(){
+		int count = 0;
+		
+		for(Order order : orders){
+			count++;
+		}
+
+		return count;
+	}
+
 }
