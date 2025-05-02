@@ -2,3 +2,8 @@ C01, Eren, Jäger, 2025-04-01, eren.jäger@gmail.com, 19283 Elm Street, Los Ange
 C02, Mikasa, Ackermann, 2025-04-01, mikasa.ackermann@gmail.com, 19283 Elm Street, Los Angeles, CA, 91326, 8187469036
 C03, Armin, Arlert, 2025-04-01, armin.arlert@gmail.com, 19283 Elm Street, Los Angeles, CA, 91326, 8187469036
 C04, Tanjiro, Kamado, 2000-10-26, tanjiro.kamado@email.com, 19283 Elm Street, Los Angeles, CA, 91326, 8187469036
+C05, John, Doe, 2000-01-01, vak818, 888 west elm ave, Glendale, CA, 91211, 0000000000
+C06, John, Doe, 2000-01-01, gasparian888@yahoo.com, 288 Beverly dr, Beverly Hills, CA, 91201, 0000000000
+C07, John, Doe, 2000-01-01, vak1212121, dfbvfds, dvas, CA, 4334, 0000000000
+C08, fsdbvdsfbv, vdsvsd, 2135321, befbvdsv, vsdfvds, vdsvfds, CA, 42343, 5245325
+C09, Vardges , Gasparyan, 1999, vak818@yahoo.com, 143124, dfsd, CA, 2431, 81881818
