@@ -200,5 +200,6 @@
             </HBox>
          </children>
       </AnchorPane>
+      <Button fx:id="totalSalesButton" layoutX="32.0" layoutY="110.0" mnemonicParsing="false" onAction="#showTotalSales" text="Sales Stats" />
    </children>
 </AnchorPane>

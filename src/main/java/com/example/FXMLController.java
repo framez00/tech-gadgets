@@ -47,11 +47,12 @@ import javafx.stage.Stage;
 import javafx.scene.Node;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import Code.Backend.ProductService;
-
+import Code.Backend.OrderController;
 import Code.Backend.Product;
 import Code.Backend.ProductService;
 
@@ -210,4 +211,19 @@ public class FXMLController implements Initializable {
             }
         }
     }
+
+    private final OrderController orderController = new OrderController();
+
+    @FXML
+    private void showTotalSales() {
+        double totalSales = orderController.trackSales();
+        int totalOrders = orderController.countOrder();
+
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Total Sales");
+        alert.setHeaderText("Sales Summary");
+        alert.setContentText("Total Orders: " + totalOrders + "\nTotal Sales: $" + totalSales);
+        alert.showAndWait();
+    }
+
 }

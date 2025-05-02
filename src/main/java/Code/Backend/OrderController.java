@@ -216,9 +216,10 @@ public class OrderController {
 		}
 	}
 
+ 
 	public double trackSales(){
 		double total = 0.0;
-
+  
 		for(Order order : orders){
 			total += order.getPrice();
 		}
@@ -235,5 +236,4 @@ public class OrderController {
 
 		return count;
 	}
-
 }
