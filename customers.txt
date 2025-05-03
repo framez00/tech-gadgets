@@ -2,17 +2,6 @@ C01, Eren, Jäger, 2025-04-01, eren.jäger@gmail.com, 19283 Elm Street, Los Ange
 C02, Mikasa, Ackermann, 2025-04-01, mikasa.ackermann@gmail.com, 19283 Elm Street, Los Angeles, CA, 91326, 8187469036
 C03, Armin, Arlert, 2025-04-01, armin.arlert@gmail.com, 19283 Elm Street, Los Angeles, CA, 91326, 8187469036
 C04, Tanjiro, Kamado, 2000-10-26, tanjiro.kamado@email.com, 19283 Elm Street, Los Angeles, CA, 91326, 8187469036
-C05, John, Doe, 2000-01-01, vak818, 888 west elm ave, Glendale, CA, 91211, 0000000000
-C06, John, Doe, 2000-01-01, gasparian888@yahoo.com, 288 Beverly dr, Beverly Hills, CA, 91201, 0000000000
-C07, John, Doe, 2000-01-01, vak1212121, dfbvfds, dvas, CA, 4334, 0000000000
-C08, fsdbvdsfbv, vdsvsd, 2135321, befbvdsv, vsdfvds, vdsvfds, CA, 42343, 5245325
-C09, Vardges , Gasparyan, 1999, vak818@yahoo.com, 143124, dfsd, CA, 2431, 81881818
-C10, fdbsdb, vv, 434234, fdgsdv, asdf, safds, CA, 3423, 234323422
-C11, vfdvdsv, sdvfdsv, 54234, fdbvdfsv, vvdfsv, fvsdvfv, CA, 412343, 2142314
-C12, 35432, hgdf, 365345, ggdbd, dfgf, gdgdf, CA, 43643, 63454
-C13, fdbfdb, vdfsvdfs, 5235432, bsdbf, bvdsfb, vfdsv, CA, 52324, 32534
-c0bac250-563e-4b18-a511-4f3e04f5d96f, dvsadv, vasvds, 53245, rgewgwegg, gerwgre, rgweg, gew, 43232, 34532
-5d374e3a-fa7c-4d79-b7c9-b50e2988c134, Vardges, Gasparyan, 222222, 222@yahoo.com, 2222222burbank, burbank, ca, 91502, 22222
-4cd03c80-51f3-44ca-95e0-2980751a9d61, Vardges, Gasparian, 1111, 111@t, vurbak, burbank, cs, 91502, 111
-e1505ff4-34ec-4026-bb0e-dc6120c2f845, Vak, GasparYAN, 20220202, gasparYAN@mail, burbank, burbank, ca, 91502, 2222222
-684e0fe2-ec28-4dd7-be9b-4e3d53bb475f, fsdafa, dsfas, 421342, 23234, fsdfvsd, vdsva, vsd, 213, 432423
+e99e46d1-c57a-4734-9ab6-b334998105d0, Vak, GasparYan, 19991029, vak818@yahoo.com, 261 easts anyt anita ave, Burbank, ca, 91502, 818181818
+2904eb2b-c594-42c4-8b18-b7806f1c9f15, sdfsd, sfdfs, 2342, 423423, 24324, sdgfdg, bdfg, 4234, 2342
+978bfd4d-81a0-4259-86f9-eb666db79caa, sdasd, asdas, 3423, 4243, dffdbds, fbsdb, sdb, 432, 2423

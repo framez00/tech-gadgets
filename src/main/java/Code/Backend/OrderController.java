@@ -71,7 +71,7 @@ public class OrderController {
 		File file = new File("orders.txt");
 
 		// clear the list so there are no duplicates
-		// orders.clear();
+		orders.clear();
 
 		if (file.exists()) {
 			try {
