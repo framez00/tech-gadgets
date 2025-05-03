@@ -2,10 +2,16 @@ package com.example;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.UUID;
 
+import Code.Backend.CartService;
 import Code.Backend.Customer;
 import Code.Backend.CustomerController;
+import Code.Backend.Order;
+import Code.Backend.OrderController;
+import Code.Backend.Product;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -88,10 +94,12 @@ public class checkoutController {
     private TextField cvvField;
     @FXML
     private Label orderTotalLabel;
+    @FXML
+    private TextField stateField;
 
     @FXML
     private void placeOrder() {
-        // Get user input from form
+        // Collect form input
         String firstName = firstNameField.getText();
         String lastName = lastNameField.getText();
         String dob = dobField.getText();
@@ -99,11 +107,13 @@ public class checkoutController {
         String email = emailField.getText();
         String street = addressField.getText();
         String city = cityField.getText();
+        String state = stateField.getText(); // Make sure this field is in your FXML
         String zipText = zipField.getText();
 
-        // Validate required fields
+        // Validate form fields
         if (firstName.isEmpty() || lastName.isEmpty() || dob.isEmpty() || phone.isEmpty()
-                || email.isEmpty() || street.isEmpty() || city.isEmpty() || zipText.isEmpty()) {
+                || email.isEmpty() || street.isEmpty() || city.isEmpty()
+                || state.isEmpty() || zipText.isEmpty()) {
             showAlert("Please fill in all required fields.");
             return;
         }
@@ -116,16 +126,46 @@ public class checkoutController {
             return;
         }
 
-        String userID = generateCustomerID();
-        String state = "CA"; // Hardcoded for now — can make this a dropdown later
+        // Generate IDs
+        String customerId = UUID.randomUUID().toString();
+        String orderId;
+        String orderDate = java.time.LocalDate.now().toString();
+        String status = "Placed";
 
-        Customer customer = new Customer(userID, firstName, lastName, dob, email, street, city, state, zip, phone);
-
+        // Create and save Customer
+        Customer customer = new Customer(customerId, firstName, lastName, dob,
+                email, street, city, state, zip, phone);
         CustomerController customerController = new CustomerController();
         customerController.addCustomer(customer, email);
         customerController.saveCustomers();
 
-        showAlert("Order placed. Customer saved.");
+        // Load cart items
+        CartService cartService = new CartService();
+        ArrayList<Product> cartItems = new ArrayList<>(cartService.getCartItems());
+        if (cartItems.isEmpty()) {
+            showAlert("Your cart is empty.");
+            return;
+        }
+
+        // Calculate total price
+        double total = 0;
+        for (Product p : cartItems) {
+            total += p.getPrice() * p.getQuantity();
+        }
+
+        // Create and save Order
+        OrderController orderController = new OrderController();
+        orderId = orderController.createOrderID();
+
+        Order order = new Order(orderId, customerId, total, orderDate, status, cartItems);
+        orderController.addOrder(order);
+        orderController.saveOrder();
+
+        // Clear the cart
+        cartService.clearCart();
+
+        // Success message
+        showAlert("Order placed successfully!");
     }
 
     private String generateCustomerID() {

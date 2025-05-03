@@ -127,20 +127,27 @@ public class OrderController {
 
 	// method to save order and write them back into the txt file
 	public void saveOrder() {
-		try {
-			// create a writer
-			PrintWriter writer = new PrintWriter("orders.txt");
-
-			// loop through orders and print them
+		try (PrintWriter writer = new PrintWriter("orders.txt")) {
 			for (Order order : orders) {
+				StringBuilder productListBuilder = new StringBuilder();
+				for (Product p : order.getProductList()) {
+					productListBuilder.append(
+							p.getProductID()).append(":")
+							.append(p.getProductName()).append(":")
+							.append(p.getPrice()).append(":")
+							.append(p.getQuantity()).append("/");
+				}
+				if (productListBuilder.length() > 0) {
+					productListBuilder.setLength(productListBuilder.length() - 1);
+				}
+
 				String line = order.getOrderID() + ", " + order.getCustomerID() + ", " +
-						order.getPrice() + ", " + order.getOrderDate() + ", " + order.getStatus() + ", "
-						+ order.getProductList();
+						order.getPrice() + ", " + order.getOrderDate() + ", " + order.getStatus() + ", " +
+						productListBuilder;
 				writer.println(line);
 			}
-			writer.close();
 		} catch (Exception e) {
-			System.out.println("Error: Could not save the products into products.txt." + e.getMessage());
+			System.out.println("Error: Could not save the order into orders.txt. " + e.getMessage());
 		}
 	}
 
@@ -216,21 +223,20 @@ public class OrderController {
 		}
 	}
 
- 
-	public double trackSales(){
+	public double trackSales() {
 		double total = 0.0;
-  
-		for(Order order : orders){
+
+		for (Order order : orders) {
 			total += order.getPrice();
 		}
 
 		return total;
 	}
 
-	public int countOrder(){
+	public int countOrder() {
 		int count = 0;
-		
-		for(Order order : orders){
+
+		for (Order order : orders) {
 			count++;
 		}
 

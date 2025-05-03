@@ -1,2 +1,1 @@
-O4, C03, 30.0, 03-10-2025, delivered, [P01 : Keyboard : 15.0 : 1, P02 : Headphones : 15.0 : 1]
-O2, C01, 1035.0, 2025-05-01, pending, [P01 : Keyboard : 15.0 : 1, P02 : Mouse : 10.0 : 2, P03 : Laptop : 1000.0 : 1]
+O1, 684e0fe2-ec28-4dd7-be9b-4e3d53bb475f, 899.97, 2025-05-02, Placed, 10:Garmin Smartwatch:299.99:3

@@ -31,6 +31,7 @@
             <Label text="Shipping Address" />
             <TextField fx:id="addressField" promptText="Street Address" />
             <TextField fx:id="cityField" promptText="City" />
+            <TextField fx:id="stateField" promptText="State" />
             <TextField fx:id="zipField" promptText="ZIP Code" />
         </VBox>
 

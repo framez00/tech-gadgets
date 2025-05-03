@@ -65,7 +65,6 @@ import java.io.FileWriter;
 import java.io.BufferedWriter;
 import java.io.IOException;
 
-
 import java.util.List;
 
 public class FXMLController implements Initializable {
@@ -79,20 +78,20 @@ public class FXMLController implements Initializable {
     private int cartCount = 0;
 
     private boolean isCartPopupVisible = false;
-    
+
     private final CartService cartService = new CartService();
 
     @FXML
     private GridPane gridPane;
 
-    //cartlist and subtotal 
+    // cartlist and subtotal
     @FXML
     private ListView<String> cartList;
 
     @FXML
     private Label subtotalLabel;
 
-    //injected all addToCart buttons
+    // injected all addToCart buttons
     @FXML
     private Button jvcAddButton;
     @FXML
@@ -121,12 +120,11 @@ public class FXMLController implements Initializable {
         if (cartCountLabel != null) {
             cartCountLabel.setText(String.valueOf(cartCount));
         }
-        
+
         for (Product p : productService.getAllProducts()) {
-        System.out.println(p.getProductID() + " -> " + p.getProductName());
+            System.out.println(p.getProductID() + " -> " + p.getProductName());
         }
         System.out.println("Done checking products.");
-
 
         // Connect buttons dynamically
         connectButtonToProduct(jvcAddButton, "JVC Headphone");
@@ -149,11 +147,10 @@ public class FXMLController implements Initializable {
         if (product != null) {
             button.setOnAction(e -> {
                 Product freshCopy = new Product(
-                    product.getProductID(),
-                    product.getProductName(),
-                    product.getPrice(),
-                    1
-                );
+                        product.getProductID(),
+                        product.getProductName(),
+                        product.getPrice(),
+                        1);
                 addToCart(freshCopy);
             });
         } else {
@@ -163,8 +160,9 @@ public class FXMLController implements Initializable {
 
     @FXML
     private void addToCart(ActionEvent event) {
-    // left it empty if you only use addToCart(Product p) dynamically
-    //System.out.println("Add to cart clicked from FXML, but no direct product linked.");
+        // left it empty if you only use addToCart(Product p) dynamically
+        // System.out.println("Add to cart clicked from FXML, but no direct product
+        // linked.");
     }
 
     private void addToCart(Product p) {
@@ -176,18 +174,18 @@ public class FXMLController implements Initializable {
         cartService.addToCart(p);
         cartCount++;
         cartCountLabel.setText(String.valueOf(cartCount));
-        updateCartListView(); //updates list view and subtotal
+        updateCartListView(); // updates list view and subtotal
     }
 
     private void updateCartListView() {
         ObservableList<String> items = FXCollections.observableArrayList();
         double subtotal = 0.0;
-    
+
         for (Product p : cartService.getCartItems()) {
             items.add(String.format("%s (x%d) - $%.2f", p.getProductName(), p.getQuantity(), p.getPrice()));
             subtotal += p.getPrice() * p.getQuantity();
         }
-    
+
         cartList.setItems(items);
         subtotalLabel.setText(String.format("Subtotal: $%.2f", subtotal));
     }
@@ -326,13 +324,17 @@ public class FXMLController implements Initializable {
 
     @FXML
     private void showTotalSales() {
+        orderController.loadOrders();
+
         double totalSales = orderController.trackSales();
         int totalOrders = orderController.countOrder();
 
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Total Sales");
         alert.setHeaderText("Sales Summary");
-        alert.setContentText("Total Orders: " + totalOrders + "\nTotal Sales: $" + totalSales);
+        alert.setContentText(
+                "Total Orders: " + totalOrders + "\n" +
+                        "Total Sales: $" + String.format("%.2f", totalSales));
         alert.showAndWait();
     }
 
