@@ -1,0 +1,8 @@
+9, SM7B Mic, 359.99, 1
+10, Garmin Smartwatch, 299.99, 1
+2, Sony Headphone, 349.99, 1
+3, Lenovo Ideapad 3, 379.00, 2
+1, JVC Headphone, 59.95, 1
+8, Apple Watch Series 10, 399.99, 3
+7, Blue Yeti Mic, 129.99, 1
+6, iPhone 16, 799.00, 2

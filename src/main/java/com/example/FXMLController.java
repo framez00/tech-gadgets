@@ -56,6 +56,16 @@ import Code.Backend.OrderController;
 import Code.Backend.Product;
 import Code.Backend.ProductService;
 
+import Code.Backend.CartService;
+import javafx.scene.control.ListView;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.scene.control.Label;
+import java.io.FileWriter;
+import java.io.BufferedWriter;
+import java.io.IOException;
+
+
 import java.util.List;
 
 public class FXMLController implements Initializable {
@@ -69,18 +79,117 @@ public class FXMLController implements Initializable {
     private int cartCount = 0;
 
     private boolean isCartPopupVisible = false;
+    
+    private final CartService cartService = new CartService();
+
+    @FXML
+    private GridPane gridPane;
+
+    //cartlist and subtotal 
+    @FXML
+    private ListView<String> cartList;
+
+    @FXML
+    private Label subtotalLabel;
+
+    //injected all addToCart buttons
+    @FXML
+    private Button jvcAddButton;
+    @FXML
+    private Button lenovoAddButton;
+    @FXML
+    private Button applewatchAddButton;
+    @FXML
+    private Button iphone16AddButton;
+    @FXML
+    private Button asusAddButton;
+    @FXML
+    private Button sonyAddButton;
+    @FXML
+    private Button garminAddButton;
+    @FXML
+    private Button iphone14AddButton;
+    @FXML
+    private Button sm7bAddButton;
+    @FXML
+    private Button condenserAddButton;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        cartService.clearCart(); // start with an empty cart
+
         if (cartCountLabel != null) {
             cartCountLabel.setText(String.valueOf(cartCount));
+        }
+        
+        for (Product p : productService.getAllProducts()) {
+        System.out.println(p.getProductID() + " -> " + p.getProductName());
+        }
+        System.out.println("Done checking products.");
+
+
+        // Connect buttons dynamically
+        connectButtonToProduct(jvcAddButton, "JVC Headphone");
+        connectButtonToProduct(lenovoAddButton, "Lenovo Ideapad 3");
+        connectButtonToProduct(applewatchAddButton, "Apple Watch series 10");
+        connectButtonToProduct(iphone16AddButton, "iphone 16");
+        connectButtonToProduct(asusAddButton, "ASUS 2-in-1 Laptop");
+        connectButtonToProduct(sonyAddButton, "Sony Headphone");
+        connectButtonToProduct(garminAddButton, "Garmin Smartwatch");
+        connectButtonToProduct(iphone14AddButton, "iphone 14");
+        connectButtonToProduct(sm7bAddButton, "SM7B Mic");
+        connectButtonToProduct(condenserAddButton, "Blue Yeti Mic");
+    }
+
+    private void connectButtonToProduct(Button button, String productNameOrId) {
+        if (button == null) {
+            return;
+        }
+        Product product = productService.findProductByIdOrName(productNameOrId);
+        if (product != null) {
+            button.setOnAction(e -> {
+                Product freshCopy = new Product(
+                    product.getProductID(),
+                    product.getProductName(),
+                    product.getPrice(),
+                    1
+                );
+                addToCart(freshCopy);
+            });
+        } else {
+            System.out.println("Product not found for button: " + productNameOrId);
         }
     }
 
     @FXML
     private void addToCart(ActionEvent event) {
+    // left it empty if you only use addToCart(Product p) dynamically
+    //System.out.println("Add to cart clicked from FXML, but no direct product linked.");
+    }
+
+    private void addToCart(Product p) {
+        if (p == null) {
+            System.out.println("Product not found in button!");
+            return;
+        }
+        System.out.println("Adding product to cart: " + p.getProductName() + " with quantity: " + p.getQuantity());
+        cartService.addToCart(p);
         cartCount++;
         cartCountLabel.setText(String.valueOf(cartCount));
+        updateCartListView(); //updates list view and subtotal
+    }
+
+    private void updateCartListView() {
+        ObservableList<String> items = FXCollections.observableArrayList();
+        double subtotal = 0.0;
+    
+        for (Product p : cartService.getCartItems()) {
+            items.add(String.format("%s (x%d) - $%.2f", p.getProductName(), p.getQuantity(), p.getPrice()));
+            subtotal += p.getPrice() * p.getQuantity();
+        }
+    
+        cartList.setItems(items);
+        subtotalLabel.setText(String.format("Subtotal: $%.2f", subtotal));
     }
 
     // allows cart summary popup to be visible when shopping cart image is clicked
@@ -199,6 +308,7 @@ public class FXMLController implements Initializable {
             Label name = new Label(p.getProductName());
             Label price = new Label("Price: $" + p.getPrice());
             Button add = new Button("Add to Cart");
+            add.setUserData(p); // Attach the Product object to the button
             add.setOnAction(this::addToCart);
 
             card.getChildren().addAll(name, price, add);

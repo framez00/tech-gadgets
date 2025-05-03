@@ -1,11 +1,10 @@
-1,JVC Headphone,1200.00,1
-2,Sony Headphone,800.00,1
-3,Lenovo Ideapad 3,150.00,1
-4,ASUS 2-in-1 Laptop,90.00,1
-5,NanoPhone,200.00,1
-6,iPhone 15,60.00,1
-7,Blue Yeti Mic,85.00,1
-8,Apple Watch Series 10,145.00,1
-9,SM7B Mic,235.00,1
-10,Garmin Smartwatch,453.00,1
-
+1,JVC Headphone,59.95,1
+2,Sony Headphone,349.99,1
+3,Lenovo Ideapad 3,379.00,1
+4,ASUS 2-in-1 Laptop,689.00,1
+5,iphone 14,385.99,1
+6,iPhone 16,799.00,1
+7,Blue Yeti Mic,129.99,1
+8,Apple Watch Series 10,399.99,1
+9,SM7B Mic,359.99,1
+10,Garmin Smartwatch,299.99,1
