@@ -7,7 +7,13 @@ import java.util.Scanner;
 import Code.Backend.Customer;
 import Code.Backend.CustomerController;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 
 /**
  * Class Name: checkoutController
@@ -143,4 +149,14 @@ public class checkoutController {
         alert.setContentText(message);
         alert.showAndWait();
     }
+
+    @FXML
+    private void goBackToCatalog(MouseEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/primary.fxml"));
+        Parent root = loader.load();
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
+
 }
