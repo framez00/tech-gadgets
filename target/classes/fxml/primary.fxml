@@ -109,7 +109,7 @@
                      </image>
                   </ImageView>
                   <Label prefHeight="26.0" prefWidth="166.0" text="ASUS - 2-in-1  Laptop " />
-                  <Button onAction="#addToCart" styleClass="round-blue" text="Add to cart" />
+                  <Button fx:id="asusAddButton" onAction="#addToCart" styleClass="round-blue" text="Add to cart" />
                </children>
             </VBox>
             <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="15.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
