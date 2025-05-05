@@ -79,7 +79,9 @@ public class FXMLController implements Initializable {
 
     private boolean isCartPopupVisible = false;
 
-    private final CartService cartService = new CartService();
+    //private final CartService cartService = new CartService();
+    CartService cartService = CartService.getInstance(); // singleton instance
+
 
     @FXML
     private GridPane gridPane;
@@ -115,11 +117,20 @@ public class FXMLController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        cartService.clearCart(); // start with an empty cart
+        //cartService.clearCart(); // start with an empty cart
 
+        /*  Sync cart count value and label
+        cartCount = cartService.getCartItems().size();
         if (cartCountLabel != null) {
-            cartCountLabel.setText(String.valueOf(cartCount));
-        }
+            //Show actual cart count from stored items
+            //cartCountLabel.setText(String.valueOf(cartCount));
+            cartCountLabel.setText(String.valueOf(cartService.getCartItems().size()));
+        }*/
+
+        // Ensure UI reflects cart contents on load
+        updateCartListView();
+
+        updateCartCountLabel(); // show accurate count when scene loads
 
         for (Product p : productService.getAllProducts()) {
             System.out.println(p.getProductID() + " -> " + p.getProductName());
@@ -172,12 +183,16 @@ public class FXMLController implements Initializable {
         }
         System.out.println("Adding product to cart: " + p.getProductName() + " with quantity: " + p.getQuantity());
         cartService.addToCart(p);
-        cartCount++;
-        cartCountLabel.setText(String.valueOf(cartCount));
+
+        //cartCount++;
+        //cartCountLabel.setText(String.valueOf(cartCount));
         updateCartListView(); // updates list view and subtotal
+        updateCartCountLabel(); //update the label dynamically
     }
 
     private void updateCartListView() {
+        if (cartList == null || subtotalLabel == null) return;
+
         ObservableList<String> items = FXCollections.observableArrayList();
         double subtotal = 0.0;
 
@@ -189,6 +204,15 @@ public class FXMLController implements Initializable {
         cartList.setItems(items);
         subtotalLabel.setText(String.format("Subtotal: $%.2f", subtotal));
     }
+
+    //update  cart count label
+    private void updateCartCountLabel() {
+        if (cartCountLabel != null) {
+            cartCountLabel.setText(String.valueOf(cartService.getTotalItemCount()));
+        }
+    }
+    
+    
 
     // allows cart summary popup to be visible when shopping cart image is clicked
     @FXML

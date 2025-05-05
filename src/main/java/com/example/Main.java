@@ -1,5 +1,6 @@
 package com.example;
 
+import Code.Backend.CartService;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -21,6 +22,10 @@ import javafx.geometry.Insets;
 public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
+
+        //Clear cart ONCE when app launches
+        CartService.getInstance().clearCart();
+
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/primary.fxml"));
         Parent root = loader.load();
 

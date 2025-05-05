@@ -140,7 +140,9 @@ public class checkoutController {
         customerController.saveCustomers();
 
         // Load cart items
-        CartService cartService = new CartService();
+        //CartService cartService = new CartService();
+        CartService cartService = CartService.getInstance();
+
         ArrayList<Product> cartItems = new ArrayList<>(cartService.getCartItems());
         if (cartItems.isEmpty()) {
             showAlert("Your cart is empty.");

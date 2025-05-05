@@ -1,0 +1,4 @@
+6, iPhone 16, 799.00, 2
+7, Blue Yeti Mic, 129.99, 2
+8, Apple Watch Series 10, 399.99, 1
+4, ASUS 2-in-1 Laptop, 689.00, 1

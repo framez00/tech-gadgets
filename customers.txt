@@ -5,3 +5,5 @@ C04, Tanjiro, Kamado, 2000-10-26, tanjiro.kamado@email.com, 19283 Elm Street, Lo
 e99e46d1-c57a-4734-9ab6-b334998105d0, Vak, GasparYan, 19991029, vak818@yahoo.com, 261 easts anyt anita ave, Burbank, ca, 91502, 818181818
 2904eb2b-c594-42c4-8b18-b7806f1c9f15, sdfsd, sfdfs, 2342, 423423, 24324, sdgfdg, bdfg, 4234, 2342
 978bfd4d-81a0-4259-86f9-eb666db79caa, sdasd, asdas, 3423, 4243, dffdbds, fbsdb, sdb, 432, 2423
+ebfe764f-6564-47ba-a6a1-2ba2e61dc3cd, David, Gomez, 2001-09-12, dgomez@gmail.com, 8463 alley way, Northridge, CA, 91324, 712 847 7352
+770a5f04-0a3b-4a16-b764-fb1c838e17d2, Mercedes, Tamayo, 1999-06-12, mercedesT@gmail.com, 7463 Charmander Rd., Seattle, Washington , 98697, 818 310 9897
