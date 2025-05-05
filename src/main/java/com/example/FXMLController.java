@@ -88,9 +88,7 @@ public class FXMLController implements Initializable {
     @FXML
     private GridPane gridPane;
 
-    // cartlist and subtotal
-    //@FXML
-    //private ListView<String> cartList;
+    
     @FXML
     private ListView<HBox> cartList;
 
@@ -122,15 +120,7 @@ public class FXMLController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        //cartService.clearCart(); // start with an empty cart
-
-        /*  Sync cart count value and label
-        cartCount = cartService.getCartItems().size();
-        if (cartCountLabel != null) {
-            //Show actual cart count from stored items
-            //cartCountLabel.setText(String.valueOf(cartCount));
-            cartCountLabel.setText(String.valueOf(cartService.getCartItems().size()));
-        }*/
+        
 
         // Ensure UI reflects cart contents on load
         updateCartListView();
@@ -177,7 +167,24 @@ public class FXMLController implements Initializable {
     @FXML
     private void addToCart(ActionEvent event) {
         // left it empty if you only use addToCart(Product p) dynamically
-        
+        Button source = (Button) event.getSource();
+    Object data = source.getUserData();
+
+    if (data instanceof Product) {
+        Product product = (Product) data;
+
+        // Clone product with quantity 1
+        Product freshCopy = new Product(
+            product.getProductID(),
+            product.getProductName(),
+            product.getPrice(),
+            1
+        );
+
+        addToCart(freshCopy);
+    } else {
+        System.out.println("No product found in button userData.");
+    }
     }
 
     private void addToCart(Product p) {
@@ -188,8 +195,7 @@ public class FXMLController implements Initializable {
         System.out.println("Adding product to cart: " + p.getProductName() + " with quantity: " + p.getQuantity());
         cartService.addToCart(p);
 
-        //cartCount++;
-        //cartCountLabel.setText(String.valueOf(cartCount));
+        
         updateCartListView(); // updates list view and subtotal
         updateCartCountLabel(); //update the label dynamically
     }
