@@ -41,9 +41,9 @@
             <ChoiceBox fx:id="shippingMethodChoice">
                 <items>
                     <FXCollections fx:factory="observableArrayList">
-                        <String fx:value="Standard (5-7 days)" />
-                        <String fx:value="Express (2-3 days)" />
-                        <String fx:value="Overnight" />
+                        <String fx:value="Standard (5-7 days) - $12" />
+                        <String fx:value="Express (2-3 days) - $25" />
+                        <String fx:value="Overnight - $32" />
                     </FXCollections>
                 </items>
             </ChoiceBox>

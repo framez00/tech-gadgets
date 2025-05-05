@@ -41,12 +41,14 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListCell;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.scene.Node;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
@@ -75,7 +77,7 @@ public class FXMLController implements Initializable {
     @FXML
     private VBox cartPopup;
 
-    private int cartCount = 0;
+    //private int cartCount = 0;
 
     private boolean isCartPopupVisible = false;
 
@@ -87,8 +89,11 @@ public class FXMLController implements Initializable {
     private GridPane gridPane;
 
     // cartlist and subtotal
+    //@FXML
+    //private ListView<String> cartList;
     @FXML
-    private ListView<String> cartList;
+    private ListView<HBox> cartList;
+
 
     @FXML
     private Label subtotalLabel;
@@ -172,8 +177,7 @@ public class FXMLController implements Initializable {
     @FXML
     private void addToCart(ActionEvent event) {
         // left it empty if you only use addToCart(Product p) dynamically
-        // System.out.println("Add to cart clicked from FXML, but no direct product
-        // linked.");
+        
     }
 
     private void addToCart(Product p) {
@@ -192,18 +196,30 @@ public class FXMLController implements Initializable {
 
     private void updateCartListView() {
         if (cartList == null || subtotalLabel == null) return;
-
-        ObservableList<String> items = FXCollections.observableArrayList();
+    
+        ObservableList<HBox> items = FXCollections.observableArrayList();
         double subtotal = 0.0;
-
+    
         for (Product p : cartService.getCartItems()) {
-            items.add(String.format("%s (x%d) - $%.2f", p.getProductName(), p.getQuantity(), p.getPrice()));
+            Label nameLabel = new Label(String.format("%s (x%d) - $%.2f",
+                    p.getProductName(), p.getQuantity(), p.getPrice()));
+            Button minusButton = new Button("-");
+            minusButton.setOnAction(e -> {
+                cartService.decreaseQuantity(p.getProductID());
+                updateCartListView(); // refresh UI
+                updateCartCountLabel(); // refresh count at top
+            });
+    
+            HBox row = new HBox(10, nameLabel, minusButton);
+            items.add(row);
+    
             subtotal += p.getPrice() * p.getQuantity();
         }
-
+    
         cartList.setItems(items);
         subtotalLabel.setText(String.format("Subtotal: $%.2f", subtotal));
     }
+    
 
     //update  cart count label
     private void updateCartCountLabel() {

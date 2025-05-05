@@ -152,5 +152,21 @@
          }
          return false;
      }
+
+     public void decreaseQuantity(String productId) {
+        for (Iterator<Product> it = cart.iterator(); it.hasNext(); ) {
+            Product p = it.next();
+            if (p.getProductID().equals(productId)) {
+                if (p.getQuantity() > 1) {
+                    p.setQuantity(p.getQuantity() - 1);
+                } else {
+                    it.remove(); // Remove product if quantity goes to 0
+                }
+                break;
+            }
+        }
+        saveCartToFile();
+    }
+
  }
  
