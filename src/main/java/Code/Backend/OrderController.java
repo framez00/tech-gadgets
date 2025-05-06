@@ -242,4 +242,22 @@ public class OrderController {
 
 		return count;
 	}
+
+	public double calculateTotal(Order order, String shippingMethod){
+		double price = order.getPrice();
+		double tax = price * 0.0725;
+		double shippingCost = 0;
+
+		if(shippingMethod == "standard"){
+			shippingCost = 12.0;
+		}else if(shippingMethod == "express"){
+			shippingCost = 25.0;
+		}else if(shippingMethod == "overnight"){
+			shippingCost = 32.0;
+		}else{
+			System.out.println("invalid shipping.");
+		}
+
+		return price + tax + shippingCost;
+	}
 }
