@@ -77,7 +77,7 @@
             </VBox>
             <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="15.0" GridPane.columnIndex="2">
                <children>
-                  <ImageView fitHeight="128.0" fitWidth="110.0" onMouseClicked="#openProduct3" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="128.0" fitWidth="110.0" onMouseClicked="#openProduct7" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../Product/smartwatch/smartwatch2/71QzAIFku1L._AC_UL495_SR435,495_.jpg" />
                      </image>
