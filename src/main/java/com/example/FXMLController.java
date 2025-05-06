@@ -77,21 +77,18 @@ public class FXMLController implements Initializable {
     @FXML
     private VBox cartPopup;
 
-    //private int cartCount = 0;
+    // private int cartCount = 0;
 
     private boolean isCartPopupVisible = false;
 
-    //private final CartService cartService = new CartService();
+    // private final CartService cartService = new CartService();
     CartService cartService = CartService.getInstance(); // singleton instance
-
 
     @FXML
     private GridPane gridPane;
 
-    
     @FXML
     private ListView<HBox> cartList;
-
 
     @FXML
     private Label subtotalLabel;
@@ -117,10 +114,11 @@ public class FXMLController implements Initializable {
     private Button sm7bAddButton;
     @FXML
     private Button condenserAddButton;
+    @FXML
+    private Button backButton;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
 
         // Ensure UI reflects cart contents on load
         updateCartListView();
@@ -168,23 +166,22 @@ public class FXMLController implements Initializable {
     private void addToCart(ActionEvent event) {
         // left it empty if you only use addToCart(Product p) dynamically
         Button source = (Button) event.getSource();
-    Object data = source.getUserData();
+        Object data = source.getUserData();
 
-    if (data instanceof Product) {
-        Product product = (Product) data;
+        if (data instanceof Product) {
+            Product product = (Product) data;
 
-        // Clone product with quantity 1
-        Product freshCopy = new Product(
-            product.getProductID(),
-            product.getProductName(),
-            product.getPrice(),
-            1
-        );
+            // Clone product with quantity 1
+            Product freshCopy = new Product(
+                    product.getProductID(),
+                    product.getProductName(),
+                    product.getPrice(),
+                    1);
 
-        addToCart(freshCopy);
-    } else {
-        System.out.println("No product found in button userData.");
-    }
+            addToCart(freshCopy);
+        } else {
+            System.out.println("No product found in button userData.");
+        }
     }
 
     private void addToCart(Product p) {
@@ -195,17 +192,17 @@ public class FXMLController implements Initializable {
         System.out.println("Adding product to cart: " + p.getProductName() + " with quantity: " + p.getQuantity());
         cartService.addToCart(p);
 
-        
         updateCartListView(); // updates list view and subtotal
-        updateCartCountLabel(); //update the label dynamically
+        updateCartCountLabel(); // update the label dynamically
     }
 
     private void updateCartListView() {
-        if (cartList == null || subtotalLabel == null) return;
-    
+        if (cartList == null || subtotalLabel == null)
+            return;
+
         ObservableList<HBox> items = FXCollections.observableArrayList();
         double subtotal = 0.0;
-    
+
         for (Product p : cartService.getCartItems()) {
             Label nameLabel = new Label(String.format("%s (x%d) - $%.2f",
                     p.getProductName(), p.getQuantity(), p.getPrice()));
@@ -215,26 +212,23 @@ public class FXMLController implements Initializable {
                 updateCartListView(); // refresh UI
                 updateCartCountLabel(); // refresh count at top
             });
-    
+
             HBox row = new HBox(10, nameLabel, minusButton);
             items.add(row);
-    
+
             subtotal += p.getPrice() * p.getQuantity();
         }
-    
+
         cartList.setItems(items);
         subtotalLabel.setText(String.format("Subtotal: $%.2f", subtotal));
     }
-    
 
-    //update  cart count label
+    // update cart count label
     private void updateCartCountLabel() {
         if (cartCountLabel != null) {
             cartCountLabel.setText(String.valueOf(cartService.getTotalItemCount()));
         }
     }
-    
-    
 
     // allows cart summary popup to be visible when shopping cart image is clicked
     @FXML
@@ -362,8 +356,11 @@ public class FXMLController implements Initializable {
             if (col > 4) {
                 col = 0;
                 row++;
+
             }
         }
+        backButton.setVisible(true);
+
     }
 
     private final OrderController orderController = new OrderController();
@@ -382,6 +379,43 @@ public class FXMLController implements Initializable {
                 "Total Orders: " + totalOrders + "\n" +
                         "Total Sales: $" + String.format("%.2f", totalSales));
         alert.showAndWait();
+    }
+
+    @FXML
+    private void handleBackToFullList() {
+        loadAllProducts(); // restore all products in the grid
+    }
+
+    private void loadAllProducts() {
+        productGrid.getChildren().clear();
+
+        List<Product> allProducts = productService.getAllProducts();
+        int col = 0;
+        int row = 0;
+
+        for (Product p : allProducts) {
+            VBox card = new VBox(5);
+            card.setStyle("-fx-padding: 10; -fx-border-color: #ccc; -fx-border-radius: 8;");
+            card.setPrefWidth(160);
+
+            Label name = new Label(p.getProductName());
+            Label price = new Label("Price: $" + p.getPrice());
+
+            Button add = new Button("Add to Cart");
+            add.setUserData(p);
+            add.setOnAction(this::addToCart);
+
+            card.getChildren().addAll(name, price, add);
+            productGrid.add(card, col, row);
+
+            col++;
+            if (col > 4) {
+                col = 0;
+                row++;
+            }
+        }
+
+        backButton.setVisible(false); // Hide the back button after restoring all
     }
 
 }

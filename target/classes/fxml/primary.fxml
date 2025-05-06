@@ -30,6 +30,8 @@
                </font>
             </Label>
             <TextField fx:id="searchField" onAction="#handleSearch" promptText="Search products..." />
+            <Button fx:id="backButton" text="Back" visible="false" onAction="#handleBackToFullList" />
+
          </children>
       </HBox>
       <GridPane fx:id="productGrid" alignment="TOP_CENTER" layoutX="32.0" layoutY="145.0" prefHeight="440.0" prefWidth="826.0">
