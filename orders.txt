@@ -1,1 +1,1 @@
-O1, 261bb791-3003-4a1e-91d3-2240ddeabd2d, 799.0, 2025-05-05, Placed, 6:iPhone 16:799.0:1
+O1, 9cfb0c80-39f4-4a22-a762-86b6c978fdfc, 3912.8399999999992, 2025-05-06, Placed, 3:Lenovo Ideapad 3:379.0:1/8:Apple Watch Series 10:399.99:1/1:JVC Headphone:59.95:2/7:Blue Yeti Mic:129.99:1/6:iPhone 16:799.0:1/9:SM7B Mic:359.99:1/5:iphone 14:385.99:1/10:Garmin Smartwatch:299.99:1/2:Sony Headphone:349.99:1/4:ASUS 2-in-1 Laptop:689.0:1
