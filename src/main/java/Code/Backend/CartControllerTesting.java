@@ -18,7 +18,7 @@ import java.util.List;
 
 public class CartControllerTesting {
     public static void main(String[] args) {
-        CartService cartService = new CartService();
+        CartService cartService = CartService.getInstance();
         CartController controller = new CartController(cartService);
 
         runTest("Add 'Mouse' to cart", () -> {
