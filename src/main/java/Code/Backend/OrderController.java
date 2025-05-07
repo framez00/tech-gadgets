@@ -15,10 +15,12 @@ public class OrderController {
 
 	public OrderController() {
 		this.orders = new ArrayList<>();
+		loadOrders();
 	}
 
 	public void addOrder(Order order) {
 		orders.add(order);
+		saveOrder();
 	}
 
 	public void removeOrder(String orderID) {

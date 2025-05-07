@@ -12,3 +12,8 @@ ebfe764f-6564-47ba-a6a1-2ba2e61dc3cd, David, Gomez, 2001-09-12, dgomez@gmail.com
 bc8b0805-d711-4343-a723-cdda7a8e6bd7, rgbd, dfbdf, 4523, dbgdf, bfdbgdf, bdfbgdd, ca, 2342, 25432
 261bb791-3003-4a1e-91d3-2240ddeabd2d, vvvvvvvvvvvvvv, vvvvvvvvvvv, 22222222, vvvvvv, vvvvvvvv, vvvvvv, vvvv, 222222, 2222222
 9cfb0c80-39f4-4a22-a762-86b6c978fdfc, Fahim, Ramez, 2000-11-16, fahim.ramez@icloud.com, street, city, CA, 11111, 8188888888
+ca3776f2-27e0-4711-b9b1-310bb9703449, s, s, s, s, s, s, s, 1, s
+8f4ee178-6087-4da1-bd1f-e5f442961568, c, c, c, c, cc, c, c, 1, c
+91d120e8-ec6d-447d-b3f5-588cca1ad749, f, f, f, f, f, f, f, 1, f
+a8305f79-11de-422d-b3ac-8a06846c3e6e, g, g, g, g, g, g, g, 2, g
+432e89d6-f97f-437b-a669-6ff4a3f9c6d6, d, dd, d, d, d, d, d, 3, d

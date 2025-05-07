@@ -1,1 +1,3 @@
-O1, 9cfb0c80-39f4-4a22-a762-86b6c978fdfc, 3912.8399999999992, 2025-05-06, Placed, 3:Lenovo Ideapad 3:379.0:1/8:Apple Watch Series 10:399.99:1/1:JVC Headphone:59.95:2/7:Blue Yeti Mic:129.99:1/6:iPhone 16:799.0:1/9:SM7B Mic:359.99:1/5:iphone 14:385.99:1/10:Garmin Smartwatch:299.99:1/2:Sony Headphone:349.99:1/4:ASUS 2-in-1 Laptop:689.0:1
+O1, a8305f79-11de-422d-b3ac-8a06846c3e6e, 519.96, 2025-05-06, Placed, 7:Blue Yeti Mic:129.99:4
+O2, 432e89d6-f97f-437b-a669-6ff4a3f9c6d6, 2067.0, 2025-05-06, Placed, 4:ASUS 2-in-1 Laptop:689.0:3
+O3, d0ca111f-8d4f-4a1e-8518-66ddfcf872fb, 259.98, 2025-05-06, Placed, 7:Blue Yeti Mic:129.99:2
