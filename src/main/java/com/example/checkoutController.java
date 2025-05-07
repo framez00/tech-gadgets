@@ -128,6 +128,7 @@ public class checkoutController {
 
         // Generate IDs
         String customerId = UUID.randomUUID().toString();
+
         String orderId;
         String orderDate = java.time.LocalDate.now().toString();
         String status = "Placed";
@@ -140,7 +141,6 @@ public class checkoutController {
         customerController.saveCustomers();
 
         // Load cart items
-        //CartService cartService = new CartService();
         CartService cartService = CartService.getInstance();
 
         ArrayList<Product> cartItems = new ArrayList<>(cartService.getCartItems());
@@ -199,6 +199,27 @@ public class checkoutController {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(new Scene(root));
         stage.show();
+    }
+
+    @FXML
+    public void initialize() {
+        System.out.println("CheckoutController initialized");
+
+        CartService cartService = CartService.getInstance();
+        ArrayList<Product> cartItems = new ArrayList<>(cartService.getCartItems());
+
+        double total = 0;
+        for (Product p : cartItems) {
+            total += p.getPrice() * p.getQuantity();
+        }
+
+        if (orderTotalLabel == null) {
+            System.out.println("Label injection failed.");
+        } else {
+            System.out.println("Label injected successfully.");
+            System.out.println("Calculated total: $" + total);
+            orderTotalLabel.setText(String.format("Total: $%.2f", total));
+        }
     }
 
 }

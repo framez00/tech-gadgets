@@ -1,4 +1,5 @@
 O1, a8305f79-11de-422d-b3ac-8a06846c3e6e, 519.96, 2025-05-06, Placed, 7:Blue Yeti Mic:129.99:4
 O2, 432e89d6-f97f-437b-a669-6ff4a3f9c6d6, 2067.0, 2025-05-06, Placed, 4:ASUS 2-in-1 Laptop:689.0:3
 O3, d0ca111f-8d4f-4a1e-8518-66ddfcf872fb, 259.98, 2025-05-06, Placed, 7:Blue Yeti Mic:129.99:2
+O4, 670aa1eb-5f36-4f1e-8c30-b5c43fd67a19, 1137.0, 2025-05-06, Placed, 3:Lenovo Ideapad 3:379.0:3
 O4, c0eb4430-11f6-4d52-88e1-17bcab2b4c44, 1717.9, 2025-05-06, Placed, 1:JVC Headphone:59.95:2/6:iPhone 16:799.0:2

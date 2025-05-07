@@ -2,6 +2,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+         
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.infinitytech</groupId>
@@ -11,8 +12,8 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <java.version>17</java.version>
-        <javafx.version>17.0.2</javafx.version>
+        <java.version>21</java.version>
+        <javafx.version>23.0.1</javafx.version>
     </properties>
 
     <dependencies>
@@ -22,30 +23,30 @@
             <version>${javafx.version}</version>
         </dependency>
         <dependency>
-    <groupId>org.openjfx</groupId>
-    <artifactId>javafx-media</artifactId>
-    <version>${javafx.version}</version>
-</dependency>
-
-        <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-fxml</artifactId>
+            <version>${javafx.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-media</artifactId>
             <version>${javafx.version}</version>
         </dependency>
     </dependencies>
 
     <build>
         <plugins>
+            <!-- Compile using Java 21 -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.0</version>
+                <version>3.8.1</version>
                 <configuration>
-                    <source>${java.version}</source>
-                    <target>${java.version}</target>
+                    <release>${java.version}</release>
                 </configuration>
             </plugin>
 
+            <!-- JavaFX Maven Plugin -->
             <plugin>
                 <groupId>org.openjfx</groupId>
                 <artifactId>javafx-maven-plugin</artifactId>
@@ -59,6 +60,10 @@
                 </executions>
                 <configuration>
                     <mainClass>com.example.Main</mainClass>
+                    <options>
+                        <option>--add-modules</option>
+                        <option>ALL-MODULE-PATH</option>
+                    </options>
                 </configuration>
             </plugin>
         </plugins>
